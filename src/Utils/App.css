@@ -1,0 +1,89 @@
+.App {
+	text-align: center;
+}
+
+/* Navbar */
+.navbar {
+	text-align: start;
+	color: #fff;
+}
+
+.navbar h4 {
+	margin: 0;
+}
+
+/* Login */
+.login {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	display: flex;
+}
+
+.login-content {
+	width: 350px;
+	height: 450px;
+	position: absolute;
+	border-radius: 5px;
+	top: 50%;
+	margin-top: -220px;
+	border: 1px solid #349745;
+	box-shadow: 1px 3px #349745
+}
+
+.login-header {
+	display: flex;
+	justify-content: center;
+}
+
+.login-header img {
+	margin-top: 16px;
+	margin-bottom: 8px;
+	width: 90px;
+}
+
+.login-body {
+	padding: 30px;
+}
+
+.login button {
+	margin: 5px 0px;
+	height: 35px;
+	float: right;
+} 
+
+.login .btn-register {
+	border: 1px solid #349745;
+	color: #349745;
+	margin-right: 5px;
+}
+
+.login .btn-login {
+	color: #fff;
+	background-color: #349745;
+	border: none;
+}
+
+.login .btn-login:hover {
+	color: #fff;
+	margin: 5px 0px;
+	background-color: rgb(0, 128, 90);
+}
+
+.login .btn-register:hover {
+	color: #fff;
+	margin: 5px 0px;
+	background-color: rgb(0, 128, 90);
+	margin-right: 5px;
+}
+
+.login hr {
+	margin-top: 30px;
+	width: 250px;
+}
+
+.login label {
+	margin-bottom: 5px
+}
