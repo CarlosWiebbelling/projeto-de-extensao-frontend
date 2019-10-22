@@ -1,13 +1,22 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-import ifrs from '../Utils/static/images/ifrs.png'
+import ifrsLogo from '../Utils/static/images/ifrs.png'
+import { login } from '../Redux/Actions/Auth'
 
 export default props => {
+
+    const dispatch = useDispatch()
+
+    const handleForm = () => {
+        dispatch(login())
+    }
+
 	return (
 		<div className='login'>
 			<div className='login-content'>
 				<div className='login-header'>
-					<img src={ ifrs } alt='logo' />
+					<img src={ ifrsLogo } alt='logo' />
 				</div>
                 <div className='login-body'>
                     <form>
