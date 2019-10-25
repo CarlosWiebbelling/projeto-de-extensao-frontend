@@ -2,61 +2,39 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import ifrsLogo from '../Utils/static/images/ifrs.png'
+import LoginForm from './Form/LoginForm'
 import { login } from '../Redux/Actions/Auth'
 
 export default props => {
-
-    const dispatch = useDispatch()
-
-    const handleForm = () => {
-        dispatch(login())
-    }
+	const dispatch = useDispatch()
+	const handleForm = values => dispatch(login(values))
 
 	return (
 		<div className='login'>
 			<div className='login-content'>
 				<div className='login-header'>
-					<img src={ ifrsLogo } alt='logo' />
+					<img src={ifrsLogo} alt='logo' />
 				</div>
-                <div className='login-body'>
-                    <form>
-                        <div className="form-group">
-                            <label>Usuário</label>
-                            <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Seu login" />
-                        </div>
-                        <div className="form-group">
-                            <label>Senha</label>
-                            <input type="password" className="form-control" placeholder="Senha" />
-                        </div>
-                        {/* 
-                            <div className="form-group form-check col-9">
-                                <input type="checkbox" className="form-check-input" />
-                                <label className="form-check-label">Eu li e aceito os termos e condições de uso</label>
-                            </div> 
-                        */}
-                        <button type="submit" className="btn btn-login">Entrar</button>
-                        <button onClick={ props.changeMode } type="submit" className="btn btn-register">Registrar</button>
-                    </form>
-                </div>
-                <hr/>
-                <div className='login-footer'>
-                    {/* <a href="http://google">Esqueci minha senha</a> */}
-                </div>
+				<div className='login-body' style={{ textAlign: 'center' }}>
+					<LoginForm
+						handleSubmit={values => handleForm(values)}
+						style={{ width: '100%' }} />
+				</div>
+				<hr />
+				<div className='login-footer'>
+					<h4>Esqueceu sua senha?<a href="http://google.com">redefinir</a></h4>
+					<h4>Não possui uma conta?<a href="http://">criar conta</a></h4>
+				</div>
 			</div>
 		</div>
 	)
 }
 
 /*
-<h4
-    style={{
-        color: '#848484',
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        marginBottom: '0',
-        marginLeft: '15px',
-        fontSize: '27px'
-    }}>
-    DRUMBO
-</h4>
+<button
+    onClick={ props.changeMode }
+    type='submit'
+    className='btn btn-register'>
+    Registrar
+</button>
 */

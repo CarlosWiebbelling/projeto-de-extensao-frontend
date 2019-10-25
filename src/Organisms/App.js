@@ -7,7 +7,7 @@ import Dashboard from './Dashboard'
 export default () => {
 	const [login, setLogin] = useState(true)
 
-	return <Dashboard />
+	// return <Dashboard />
 
 	return login ? (
 		<Login changeMode={() => setLogin(false)} />

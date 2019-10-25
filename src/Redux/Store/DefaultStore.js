@@ -1,10 +1,9 @@
-const auth = {
-	username: null,
-    password: null,
+export const auth = {
+	token: null,
     loading: false
 }
 
-const courses = [
+export const courses = [
 	{
 		name: 'ADS',
 		projects: [
@@ -43,5 +42,3 @@ const courses = [
 		projects: []
 	}
 ]
-
-export default { auth, courses }

@@ -30,7 +30,7 @@
 	top: 50%;
 	margin-top: -220px;
 	border: 1px solid #349745;
-	box-shadow: 1px 3px #349745
+	box-shadow: 1px 3px #349745;
 }
 
 .login-header {
@@ -44,15 +44,19 @@
 	width: 90px;
 }
 
+.login-content {
+	padding: 0px 35px;
+}
+
 .login-body {
-	padding: 30px;
+	margin-top: 20px
 }
 
 .login button {
 	margin: 5px 0px;
 	height: 35px;
 	float: right;
-} 
+}
 
 .login .btn-register {
 	border: 1px solid #349745;
@@ -80,10 +84,113 @@
 }
 
 .login hr {
-	margin-top: 30px;
 	width: 250px;
 }
 
 .login label {
-	margin-bottom: 5px
+	margin-bottom: 5px;
+}
+
+.login .form {
+	width: 100%;
+}
+
+.login h4 {
+	text-align: left;
+}
+
+.login .form {
+	margin-bottom: 15px;
+}
+
+.login .row .col {
+	margin: 0;
+}
+
+.login .row {
+	text-align: -webkit-left;
+}
+
+.login .label {
+	display: unset
+}
+
+.login a {
+	margin-left: 5px;
+	font-size: 16px;
+}
+
+.login h4 {
+	font-size: 14px;
+}
+
+/* Checkbox */
+.check {
+	cursor: pointer;
+	width: 18px;
+	height: 18px;
+	-webkit-tap-highlight-color: transparent;
+	transform: translate3d(0, 0, 0);
+}
+
+.check:before {
+	content: '';
+	/* position: absolute; */
+	top: -15px;
+	/* left: -15px; */
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(34, 50, 84, 0.03);
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.check svg {
+	position: relative;
+	z-index: 1;
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #c8ccd4;
+	stroke-width: 1.5;
+	transform: translate3d(0, 0, 0);
+	transition: all 0.2s ease;
+}
+
+.check svg path {
+	stroke-dasharray: 60;
+	stroke-dashoffset: 0;
+}
+
+.check svg polyline {
+	stroke-dasharray: 22;
+	stroke-dashoffset: 66;
+}
+
+.check:hover:before {
+	opacity: 1;
+}
+
+.check:hover svg {
+	stroke: #349745;
+}
+
+#cbx:checked + .check svg {
+	stroke: #349745;
+}
+
+#cbx:checked + .check svg path {
+	stroke-dashoffset: 60;
+	transition: all 0.3s linear;
+}
+
+#cbx:checked + .check svg polyline {
+	stroke-dashoffset: 42;
+	transition: all 0.2s linear;
+	transition-delay: 0.15s;
+}
+
+.form-check {
+	padding: 0
 }
