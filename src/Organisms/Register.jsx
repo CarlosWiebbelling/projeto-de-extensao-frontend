@@ -13,18 +13,12 @@ export default props => {
                     <form>
                         <div className="form-group">
                             <label>Nome completo</label>
-                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Seu nome completo" />
+                            <input type="email" className="form-control" aria-describedby="email" placeholder="Seu nome completo" />
                         </div>
                         <div className="form-group">
                             <label>E-mail</label>
-                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Seu email" />
+                            <input type="email" className="form-control" aria-describedby="email" placeholder="Seu email" />
                         </div>
-                        {/* 
-                            <div className="form-group form-check col-9">
-                                <input type="checkbox" className="form-check-input" />
-                                <label className="form-check-label">Eu li e aceito os termos e condições de uso</label>
-                            </div> 
-                        */}
                         <button type="submit" className="btn btn-login">Entrar</button>
                         <button onClick={ props.changeMode } type="submit" className="btn btn-register">Registrar</button>
                     </form>
