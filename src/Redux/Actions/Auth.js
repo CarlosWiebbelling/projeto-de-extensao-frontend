@@ -12,15 +12,14 @@ export const token_fetched = token => ({
 
 export const login = values => dispatch => {
     axios.post(`${ BASE_URL }/login`, values)
-        .then(response => {
-            console.log(response)
+        .then(response =>
             dispatch({
-                type: TOKEN_FETCHED
-                // payload: response.token
+                type: TOKEN_FETCHED,
+                payload: response.data.token
             })
-        })
+        )
         .catch(error => {
-            console.error(error)
+            console.error(error.message)
             dispatch({
                 type: "NOTHING"
             })
@@ -30,6 +29,7 @@ export const login = values => dispatch => {
 export const register = values => dispatch => {
     axios.post(`${ BASE_URL }/user`, values)
         .then(response => {
+            console.error(response)
             dispatch({
                 type: "NOTHING"
             })

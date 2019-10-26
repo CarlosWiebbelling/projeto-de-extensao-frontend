@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import ifrs from '../Utils/static/images/ifrs.png'
+import ifrsLogo from '../Utils/static/images/ifrs.png'
 
 export default props => {
-
 	// const courses = useState(state => state.courses)
-
-	return null
+	return (
+		<div style={{ textAlign: 'center"' }}>
+			<img src={ ifrsLogo } alt="" srcset="" /><br />
+			<h1>Autenticado</h1>
+		</div>
+	)
 
 	// return (
 	// 	<div>
