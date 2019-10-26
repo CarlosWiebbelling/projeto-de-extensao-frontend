@@ -5,7 +5,9 @@ import Register from './Register'
 
 const Auth = props => {
     const [login, setLogin] = useState(true)
-    return login ? <Login changeMode={() => setLogin(false)} /> : <Register changeMode={() => setLogin(false)} />
+    const changeMode = () => setLogin(!login)
+
+    return login ? <Login changeMode={ changeMode } /> : <Register changeMode={ changeMode } />
 }
 
 export default Auth

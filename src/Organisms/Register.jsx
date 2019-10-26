@@ -1,47 +1,31 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-import ifrs from '../Utils/static/images/ifrs.png'
+import ifrsLogo from '../Utils/static/images/ifrs.png'
+import RegisterForm from './Form/RegisterForm'
+import { register } from '../Redux/Actions/Auth'
 
 export default props => {
+	const dispatch = useDispatch()
+	const handleForm = values => dispatch(register(values))
+
 	return (
 		<div className='login'>
 			<div className='login-content'>
 				<div className='login-header'>
-					<img src={ ifrs } alt='logo' />
+					<img src={ifrsLogo} alt='logo' />
 				</div>
-                <div className='login-body'>
-                    <form>
-                        <div className="form-group">
-                            <label>Nome completo</label>
-                            <input type="email" className="form-control" aria-describedby="email" placeholder="Seu nome completo" />
-                        </div>
-                        <div className="form-group">
-                            <label>E-mail</label>
-                            <input type="email" className="form-control" aria-describedby="email" placeholder="Seu email" />
-                        </div>
-                        <button type="submit" className="btn btn-login">Entrar</button>
-                        <button onClick={ props.changeMode } type="submit" className="btn btn-register">Registrar</button>
-                    </form>
-                </div>
-                <hr/>
-                <div className='login-footer'>
-                    {/* <a href="http://google">Esqueci minha senha</a> */}
-                </div>
+				<div className='login-body' style={{ textAlign: 'center' }}>
+					<RegisterForm
+						handleSubmit={values => handleForm(values)}
+						style={{ width: '100%' }} />
+				</div>
+				<hr />
+				<div className='login-footer'>
+					<h4>Esqueceu sua senha?<a href="http://google.com">redefinir</a></h4>
+					<h4>Já possui uma conta?<a href="#" onClick={ props.changeMode }>entrar</a></h4>
+				</div>
 			</div>
 		</div>
 	)
 }
-
-/*
-<h4
-    style={{
-        color: '#848484',
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        marginBottom: '0',
-        marginLeft: '15px',
-        fontSize: '27px'
-    }}>
-    DRUMBO
-</h4>
-*/

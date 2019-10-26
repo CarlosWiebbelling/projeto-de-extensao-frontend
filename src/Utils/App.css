@@ -24,7 +24,7 @@
 
 .login-content {
 	width: 350px;
-	height: 450px;
+	/* height: 450px; */
 	position: absolute;
 	border-radius: 5px;
 	top: 50%;
@@ -97,6 +97,11 @@
 
 .login h4 {
 	text-align: left;
+}
+
+.login .error-msg {
+	margin-top: -15px;
+	color: red;
 }
 
 .login .form {
