@@ -1,5 +1,7 @@
+import { KEY_STORAGE } from '../../Utils/consts'
+
 export const auth = {
-	token: null,
+	token: JSON.parse(localStorage.getItem(KEY_STORAGE)) || null,
     loading: false
 }
 
