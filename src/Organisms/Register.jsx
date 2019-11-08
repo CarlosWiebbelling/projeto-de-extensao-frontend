@@ -22,7 +22,7 @@ export default props => {
 				</div>
 				<hr />
 				<div className='login-footer'>
-					<h4>Esqueceu sua senha?<a href="http://google.com">redefinir</a></h4>
+					<h4>Esqueceu sua senha?<a href="https://lmgtfy.com/?q=qual+a+minha+senha%3F&s=g">redefinir</a></h4>
 					<h4>Já possui uma conta?<a href="#" onClick={ props.changeMode }>entrar</a></h4>
 				</div>
 			</div>
