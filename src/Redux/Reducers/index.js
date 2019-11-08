@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
 import Auth from './AuthReducer'
-import Dashboard from './DashboardReducer'
+import Project from './ProjectReducer'
 
 export default combineReducers({
     Auth,
-    Dashboard
+    Project
 })
