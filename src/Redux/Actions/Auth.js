@@ -29,7 +29,23 @@ export const login = values => dispatch => {
 export const register = values => dispatch => {
     axios.post(`${ BASE_URL }/user`, values)
         .then(response => {
-            console.error(response)
+            console.log(response)
+            dispatch({
+                type: "NOTHING"
+            })
+        })
+        .catch(error => {
+            console.error(error)
+            dispatch({
+                type: "NOTHING"
+            })
+        })
+}
+
+export const update = values => dispatch => {
+    axios.put(`${ BASE_URL }/user/${ values.id }`, values)
+        .then(response => {
+            console.log(response)
             dispatch({
                 type: "NOTHING"
             })

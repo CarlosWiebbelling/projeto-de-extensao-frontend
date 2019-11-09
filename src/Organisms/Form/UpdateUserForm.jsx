@@ -1,10 +1,28 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Col, Button } from "antd";
+import { Formik, Form } from "formik";
 import FormInput from "../../Molecules/FormInput";
-
+/**
+ *
+ * nome
+ * email
+ * matricula
+ * senha
+ * nova senha
+ * confirmar senha
+ * level [admin]
+ *
+ */
 const Register = ({ handleSubmit }) => (
   <Formik
-    initialValues={{ name: "", email: "", password: "", confirmPassword: "" }}
+    initialValues={{
+      name: "",
+      email: "",
+      enrollment: "",
+      password: "",
+      newPassword: "",
+      confirmPassword: ""
+    }}
     validate={values => {
       let errors = {};
 
@@ -36,40 +54,35 @@ const Register = ({ handleSubmit }) => (
       <Form>
         <FormInput name="name" placeholder="Nome" type="text" />
         <FormInput name="email" placeholder="Email" type="email" />
-        <FormInput name="password" placeholder="Senha" type="password" />
+        <FormInput name="enrollment" placeholder="Matrícula" type="text" />
+        <FormInput name="password" placeholder="Senha Atual" type="password" />
         <FormInput
-          name="confirmPassword"
-          placeholder="Confirmar Senha"
+          name="newPassword"
+          placeholder="Nova Senha"
           type="password"
         />
-
-        <div className="row">
-          <div className="col-9">
-            <div className="form-group form-check" style={{ padding: "0" }}>
-              <input type="checkbox" id="cbx" style={{ display: "none" }} />
-              <label htmlFor="cbx" className="check">
-                <svg viewBox="0 0 18 18">
-                  <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
-                  <polyline points="1 9 7 14 15 4"></polyline>
-                </svg>
-              </label>
-              <label className="form-check-label" style={{ display: "unset" }}>
-                <a href="http://">
-                  Eu li e aceito os termos e condições de uso
-                </a>
-              </label>
-            </div>
-          </div>
-          <div className="col-3">
-            <button
-              type="submit"
-              className="btn btn-login"
-              disabled={isSubmitting}
-            >
-              Entrar
-            </button>
-          </div>
-        </div>
+        <FormInput
+          name="confirmPassword"
+          placeholder="Confirmar Nova Senha"
+          type="password"
+        />
+        {/* if is admin
+                    <FormInput name="confirmPassword" placeholder="Confirmar Nova Senha" type="password" />
+                */}
+        <Col>
+          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+            Atualizar
+          </Button>
+        </Col>
+        {/* <div className="col-3">
+          <button
+            type="submit"
+            className="btn btn-login"
+            disabled={isSubmitting}
+          >
+            Entrar
+          </button>
+        </div> */}
       </Form>
     )}
   </Formik>

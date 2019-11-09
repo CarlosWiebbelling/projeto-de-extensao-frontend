@@ -6,4 +6,4 @@ import Dashboard from './DashboardReducer'
 export default combineReducers({
     Auth,
     Dashboard
-})
+}) 
