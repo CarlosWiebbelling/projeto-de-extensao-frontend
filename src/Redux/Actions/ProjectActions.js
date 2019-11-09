@@ -36,14 +36,14 @@ export const getProjects = () => {
             payload: [
                 {
                     id: '0',
-                    title: 'JOGUE lasmdsjnda',
+                    title: 'JOGUE asd',
                     description: 'HELLO MY FRIEND HELLO MY FRIEND HELLO MY FRIEND HELLO MY FRIEND HELLO MY FRIEND HELLO MY FRIEND ',
                     projectAdmins: [
                         0, 1, 2
                     ]
                 }, {
                     id: '1',
-                    title: 'JOGUE kkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkk',
+                    title: 'JOGUE asd',
                     description: 'HELLO kkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkk',
                     projectAdmins: [
                         0, 1, 2
@@ -52,4 +52,21 @@ export const getProjects = () => {
             ]
         })
     }
+}
+
+export const postProject = values => dispatch => {
+    console.log(values)
+    axios.post(`${ BASE_URL }/project`, values)
+        .then(response =>
+            console.log(response)
+            // dispatch({
+            //     payload: response.data.token
+            // })
+        )
+        .catch(error => {
+            console.error(error)
+            dispatch({
+                type: "NOTHING"
+            })
+        })
 }

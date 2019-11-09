@@ -1,9 +1,6 @@
 import React from 'react'
 
 const Card = ({ projects }) => {
-
-    console.log(projects)
-
     const renderProjects = () => 
         projects.map(project => (
             <div className="project">
@@ -14,6 +11,12 @@ const Card = ({ projects }) => {
                     <a href="http://" target="_blank" rel="noopener noreferrer">
                         see more <i className="fas fa-angle-right"></i>
                     </a>
+                    {/* {project.tag.map(tag => (
+                        <div className="badge">
+                            <span className={ tag.tagName }>{ tag.tagName }</span>
+                        </div>
+                        
+                    ))} */}
                 </div>
                 {/* 
                     <div className="event"> 
