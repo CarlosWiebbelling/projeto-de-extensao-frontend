@@ -19,14 +19,15 @@ export const getProjects = () => {
 }
 
 export const postProject = values => dispatch => {
-    console.log(values)
+    
+    values['tags'] = []
+    values['projectAdmins'] = []
+
     axios.post(`${ BASE_URL }/project`, values)
-        .then(response =>
+        .then(response => {
             console.log(response)
-            // dispatch({
-            //     payload: response.data.token
-            // })
-        )
+            dispatch(getProjects())
+        })
         .catch(error => {
             console.error(error)
             dispatch({
