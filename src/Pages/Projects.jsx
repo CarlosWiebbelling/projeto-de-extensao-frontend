@@ -18,10 +18,10 @@ const Project = () => {
     const handleForm = values => {
         dispatch(postProject(values))
     }
-
+    
     return (
         <div style={{ display: 'flex' }}>
-            <div className="col-3" style={{ backgroundColor: '#e6e6e6' }}>
+            <div className="col-3" style={{ backgroundColor: '#e6e6e6', height: '320px' }}>
                 <FormProject handleSubmit={ handleForm } />
             </div>
             <div className="col-9">

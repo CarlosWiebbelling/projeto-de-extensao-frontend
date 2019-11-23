@@ -1,22 +1,24 @@
 import React from 'react'
 
 const Card = ({ projects }) => {
+
+    console.log(projects)
+
     const renderProjects = () => 
         projects.map(project => (
             <div className="project">
                 <div className="header">
-                    <h4 className="titleProject">{ project.title }</h4>
+                    <h4 className="titleProject">{ project.name }</h4>
                     <p>{ project.description }</p>
 
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <a href="http://google.com" target="_blank" rel="noopener noreferrer">
                         see more <i className="fas fa-angle-right"></i>
                     </a>
-                    {/* {project.tag.map(tag => (
+                    {project.tags.map(tag => (
                         <div className="badge">
-                            <span className={ tag.tagName }>{ tag.tagName }</span>
+                            <span className={ tag.name }>{ tag.name }</span>
                         </div>
-                        
-                    ))} */}
+                    ))}
                 </div>
                 {/* 
                     <div className="event"> 

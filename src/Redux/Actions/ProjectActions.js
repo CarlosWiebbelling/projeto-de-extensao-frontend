@@ -8,10 +8,10 @@ import {
 export const getProjects = () => {
     return dispatch => {
         axios.get(`${ BASE_URL }/project`)
-            .then(response => 
+            .then(response =>
                 dispatch({
                     type: PROJECT_FETCHED,
-                    payload: response.data.output
+                    payload: response.data.projects
                 })
             )
             .catch(error => console.error(error))
@@ -20,8 +20,28 @@ export const getProjects = () => {
 
 export const postProject = values => dispatch => {
     
-    values['tags'] = []
-    values['projectAdmins'] = []
+    values['tags'] = [
+        {
+            name: 'ADM'
+        },
+        {
+            name: 'TECH'
+        },
+        {
+            name: 'LG'
+        }
+    ]
+    values['projectAdmins'] = [
+        {
+            name: 'Carlos Eduardo'
+        },
+        {
+            name: 'Gabriel Pucinelli'
+        },
+        {
+            name: 'Andrei Deniz'
+        }
+    ]
 
     axios.post(`${ BASE_URL }/project`, values)
         .then(response => {
