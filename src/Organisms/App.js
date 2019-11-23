@@ -6,5 +6,6 @@ import Auth from './Auth'
 
 export default () => {
 	const token = useSelector(state => state.Auth.token)
+	// return token === null ? <Project /> : <Auth />
 	return token === null ? <Auth /> : <Project /> 
 }

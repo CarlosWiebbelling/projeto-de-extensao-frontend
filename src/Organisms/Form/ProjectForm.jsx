@@ -8,16 +8,16 @@ const Project = ({ handleSubmit }) => (
 			let errors = {}
 
 			// if (!values.name)
-            //     errors.name = 'Required'
+			//     errors.name = 'Required'
 
-            // if (!values.description)
+			// if (!values.description)
 			// 	errors.description = 'Required'
-				
+
 			// if (!values.tags)
 			// 	errors.tags = 'Required'
-				
+
 			// if (!values.projectAdmins)
-            //     errors.projectAdmins = 'Required'
+			//     errors.projectAdmins = 'Required'
 
 			return errors
 		}}
@@ -43,18 +43,13 @@ const Project = ({ handleSubmit }) => (
 				<Field className='form' type='text' name='projectAdmins' />
 				<ErrorMessage name='projectAdmins' component='div' />
 
-				<div className='row'>
-					<div className='col-9'>
-					</div>
-					<div className='col-3'>
-						<button
-							type='submit'
-							className='btn btn-login'
-							disabled={isSubmitting} >
-							Cadastrar projeto
-							</button>
-					</div>
-				</div>
+				<button
+					type='submit'
+					className='btn-login'
+					disabled={isSubmitting} >
+					Cadastrar projeto
+				</button>
+
 			</Form>
 		)}
 	</Formik>
