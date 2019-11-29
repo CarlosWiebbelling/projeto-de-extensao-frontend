@@ -28,16 +28,12 @@ export const login = values => dispatch => {
 
 export const register = values => dispatch => {
     axios.post(`${ BASE_URL }/user`, values)
-        .then(response => {
-            console.log(response)
+        .then(response =>
             dispatch({
                 type: "NOTHING"
-            })
-        })
-        .catch(error => {
-            console.error(error)
+            }))
+        .catch(error => 
             dispatch({
                 type: "NOTHING"
-            })
-        })
+            }))
 }
