@@ -2,24 +2,34 @@ import axios from 'axios'
 
 import {
     BASE_URL,
-    PROJECT_FETCHED
+    PROJECT_FETCHED,
+    PROJECT_FETCHED_ONE,
+    PROJECT_DELETED
 } from '../../Utils/consts'
 
-export const getProjects = () => {
-    return dispatch => {
-        axios.get(`${ BASE_URL }/project`)
-            .then(response =>
-                dispatch({
-                    type: PROJECT_FETCHED,
-                    payload: response.data.projects
-                })
-            )
-            .catch(error => console.error(error))
-    }
+export const getAllProjects = () => dispatch => {
+    axios.get(`${BASE_URL}/project`)
+        .then(response =>
+            dispatch({
+                type: PROJECT_FETCHED,
+                payload: response.data.projects
+            })
+        )
+        .catch(error => console.error(error))
+}
+
+export const getOneProject = values => dispatch => {
+    axios.get(`${ BASE_URL }/project/${ values._id }`)
+        .then(response =>
+            dispatch({
+                type: PROJECT_FETCHED_ONE,
+                payload: response.data.projects
+            })
+        )
+        .catch(error => console.error(error))
 }
 
 export const postProject = values => dispatch => {
-    
     values['tags'] = [
         {
             name: 'ADM'
@@ -43,10 +53,10 @@ export const postProject = values => dispatch => {
         }
     ]
 
-    axios.post(`${ BASE_URL }/project`, values)
+    axios.post(`${BASE_URL}/project`, values)
         .then(response => {
             console.log(response)
-            dispatch(getProjects())
+            dispatch(getAllProjects())
         })
         .catch(error => {
             console.error(error)
@@ -54,4 +64,17 @@ export const postProject = values => dispatch => {
                 type: "NOTHING"
             })
         })
+}
+
+export const deleteProject = values => dispatch => {
+    axios.get(`${ BASE_URL }/project/${ values._id }`)
+        .then(response => {
+            dispatch(getAllProjects())
+                dispatch({
+                    type: PROJECT_DELETED,
+                    payload: response.data.projects
+                })
+            }
+        )
+        .catch(error => console.error(error))
 }

@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import Card from "../Organisms/Card/index";
 import FormProject from '../Organisms/Form/ProjectForm'
 
-import { getProjects, postProject } from '../Redux/Actions/ProjectActions'
+import { getAllProjects, postProject } from '../Redux/Actions/ProjectActions'
 
 const Project = () => {
     const dispatch = useDispatch()
     const projects = useSelector(state => state.Project)
 
     useEffect(() => {
-        dispatch(getProjects())
+        dispatch(getAllProjects())
     }, [dispatch])
 
 

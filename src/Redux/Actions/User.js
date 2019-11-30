@@ -1,11 +1,18 @@
 import axios from 'axios'
 
-import { BASE_URL, USER_UPDATED, USER_DELETED } from '../../Utils/consts'
+import { 
+    BASE_URL, 
+    USER_UPDATED, 
+    USER_DELETED, 
+    USER_FETCHED, 
+    USER_FETCHED_ALL
+} from '../../Utils/consts'
 
-export const update = values => dispatch => {
+export const updateUser = values => dispatch => {
     axios.post(`${ BASE_URL }/user/${ values._id }`, values)
         .then(response => {
             console.log(response)
+            dispatch(getAllUsers())
             dispatch({
                 type: USER_UPDATED
             })
@@ -18,12 +25,12 @@ export const update = values => dispatch => {
         })
 }
 
-export const getAll = () => dispatch => {
+export const getAllUsers = () => dispatch => {
     axios.get(`${ BASE_URL }/user`)
         .then(response => {
             console.log(response)
             dispatch({
-                type: USER_FETCHED
+                type: USER_FETCHED_ALL
             })
         })
         .catch(error => {
@@ -34,7 +41,7 @@ export const getAll = () => dispatch => {
         })
 }
 
-export const getOne = values => dispatch => {
+export const getOneUser = values => dispatch => {
     axios.get(`${ BASE_URL }/user/${ values._id }`)
         .then(response => {
             console.log(response)
@@ -50,10 +57,11 @@ export const getOne = values => dispatch => {
         })
 }
 
-export const deleteOne = values => dispatch => {
+export const deleteUser = values => dispatch => {
     axios.get(`${ BASE_URL }/user/${ values._id }`)
         .then(response => {
             console.log(response)
+            dispatch(getAllUsers())
             dispatch({
                 type: USER_DELETED
             })
