@@ -8,3 +8,8 @@ export const auth = {
 }
 
 export const projects = []
+
+export const user = {
+	user: {},
+	users: []
+}
