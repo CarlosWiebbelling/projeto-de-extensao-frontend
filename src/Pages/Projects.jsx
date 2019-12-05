@@ -29,9 +29,6 @@ const Project = () => {
                 <div className="col-4" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
                     <UpdateUserForm handleSubmit={() => console.log('NICE updateUser')} />
                 </div>
-                <div className="col-4" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
-                    <EventForm handleSubmit={() => console.log('NICE event')} />
-                </div>
                 <Card projects={ projects } deleteProject={ id => handleDelete(id) } />
             </div>
         </div>

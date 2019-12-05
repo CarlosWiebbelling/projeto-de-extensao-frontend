@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import EventForm from '../Form/EventForm'
 import Modal from '../Event'
 
 const Card = ({ projects, deleteProject }) => {
@@ -32,10 +33,13 @@ const Card = ({ projects, deleteProject }) => {
 							see more <i className='fas fa-angle-right'></i>
 						</a>
 						<Modal
+                            title="Adicionar evento"
 							visibility={showModal}
-                            alterVisibility={changeVisibility}
-                            data
-						/>
+							alterVisibility={changeVisibility}>
+							<EventForm
+								handleSubmit={() => console.log('NICE event')}
+							/>
+						</Modal>
 						<a
 							onClick={changeVisibility}
 							target='_blank'

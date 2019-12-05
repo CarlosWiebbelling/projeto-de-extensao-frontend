@@ -397,3 +397,21 @@ h4 i {
 	margin: 7px 7px 0 0;
 	cursor: pointer;
 }
+
+/* Modal Event */
+
+.modalEventHeader {
+
+}
+
+.modalEventContent{
+	min-height: 80%;
+}
+
+.modalEventFooter {
+
+}
+
+.modalEventFooter button {
+	float: right;
+}

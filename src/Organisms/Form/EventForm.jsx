@@ -3,7 +3,12 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 export default ({ handleSubmit }) => (
 	<Formik
-		initialValues={{ name: '', description: '', tags: '', projectAdmins: '' }}
+		initialValues={{
+			name: '',
+			description: '',
+			tags: '',
+			projectAdmins: ''
+		}}
 		validate={values => {
 			let errors = {}
 
@@ -42,14 +47,13 @@ export default ({ handleSubmit }) => (
 				<h4 htmlFor='speaker'>Palestrante</h4>
 				<Field className='form' type='text' name='speaker' />
 				<ErrorMessage name='speaker' component='div' />
-
+				<br />
 				<button
 					type='submit'
 					className='btn-login'
-					disabled={isSubmitting} >
+					disabled={isSubmitting}>
 					Cadastrar Evento
 				</button>
-
 			</Form>
 		)}
 	</Formik>
