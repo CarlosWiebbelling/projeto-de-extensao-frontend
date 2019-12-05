@@ -10,6 +10,8 @@ export const auth = {
 export const projects = []
 
 export const user = {
-	user: {},
+	currentLogged: {
+		level: 3
+	},
 	users: []
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import EventForm from '../Form/EventForm'
 import Modal from '../Event'
@@ -7,6 +8,9 @@ const Card = ({ projects, deleteProject }) => {
 	const [showModal, alterShow] = useState(false)
 	const changeVisibility = () => alterShow(!showModal)
 
+	const user = useSelector(state => state.User)
+	console.log(user.currentLogged)
+
 	const renderProjects = () =>
 		projects.projects.map(project => (
 			<div className='col-5' key={project._id}>
@@ -14,9 +18,14 @@ const Card = ({ projects, deleteProject }) => {
 					<div className='header'>
 						<h4 className='titleProject'>
 							{project.name}
-							<i
-								className='fas fa-close'
-								onClick={() => deleteProject(project._id)}></i>
+
+							{user.currentLogged.level === 3 && (
+								<i
+									className='fas fa-close'
+									onClick={() =>
+										deleteProject(project._id)
+									}></i>
+							)}
 						</h4>
 						<p>
 							Lorem ipsum dolor sit amet consectetur, adipisicing
@@ -26,7 +35,7 @@ const Card = ({ projects, deleteProject }) => {
 							voluptatibus magni, veritatis nisi a!
 						</p>
 
-						<button className='fakeA'>
+						<button className='fakeA btnCard'>
 							see more <i className='fas fa-angle-right'></i>
 						</button>
 						<Modal
@@ -38,7 +47,9 @@ const Card = ({ projects, deleteProject }) => {
 							/>
 						</Modal>
 
-						<button className='fakeA' onClick={changeVisibility}>
+						<button
+							className='fakeA btnCard'
+							onClick={changeVisibility}>
 							add evento{' '}
 							<i
 								className='fas fa-plus'

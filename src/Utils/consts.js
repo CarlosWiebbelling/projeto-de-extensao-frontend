@@ -13,4 +13,4 @@ module.exports = {
     PROJECT_DELETED: 'PROJECT_DELETED'
 }
 
-// db.users.update({ _id: ObjectId("5de9439ca8d293731385634f")}, {	"certificates" : [ ], "level" : 3, "name" : "Carlos Eduardo Wiebbelling", "email" : "carlos@westpoint.io", "password" : "$2b$10$..kFPnDsRIUY8yH/rC5JaeQOj2cY7L14e7zcP.BWbzBk.TZvOeHZ6", "projectsInCharge" : [ ], "eventsSubscribed" : [ ], "projectsSubscribed" : [ ], "createdAt" : ISODate("2019-12-05T14:33:41.297Z"), "__v" : 0})
+// db.users.update({ _id: ObjectId("5de94f52b171a114169b886a") }, {	"certificates" : [ ], "level" : 3, "name" : "Carlos Eduardo Wiebbelling", "email" : "carlos@westpoint.io", "password" : "$2b$10$..kFPnDsRIUY8yH/rC5JaeQOj2cY7L14e7zcP.BWbzBk.TZvOeHZ6", "projectsInCharge" : [ ], "eventsSubscribed" : [ ], "projectsSubscribed" : [ ], "createdAt" : ISODate("2019-12-05T14:33:41.297Z"), "__v" : 0})
