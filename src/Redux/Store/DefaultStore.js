@@ -3,7 +3,7 @@ import {
 } from '../../Utils/consts'
 
 export const auth = {
-	token: JSON.parse(localStorage.getItem(KEY_STORAGE)) || null,
+	token: localStorage.getItem(KEY_STORAGE) || null,
 	loading: false
 }
 

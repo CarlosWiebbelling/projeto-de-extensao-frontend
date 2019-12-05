@@ -13,6 +13,8 @@ import {
 	deleteProject
 } from '../Redux/Actions/ProjectActions'
 
+import { signout } from '../Redux/Actions/Auth'
+
 const Project = () => {
 	const dispatch = useDispatch()
 	const projects = useSelector(state => state.Project)
@@ -36,8 +38,9 @@ const Project = () => {
 
 	return (
 		<div className='container'>
-            <button className="btn btn-primary" onClick={ () => changeVisibilityProject() }>Add project</button><br/>
+            <button className="btn btn-primary" onClick={ () => changeVisibilityProject() }>Add project</button>
             <button className="btn btn-primary" onClick={ () => changeVisibilityUser() }>Update user</button>
+			<button className="btn btn-danger" onClick={ () => dispatch(signout()) }>Sign out</button>
 			
             <div className='row justify-content-around'>
 				<Modal

@@ -2,6 +2,7 @@ module.exports = {
     BASE_URL: 'http://0.0.0.0:3001',
     KEY_STORAGE: 'projeto_extensao',
     TOKEN_FETCHED: 'TOKEN_FETCHED',
+    SIGN_OUT: 'SIGN_OUT',
     PROJECT_FETCHED: 'PROJECT_FETCHED',
     USER_UPDATED: 'USER_UPDATED',
     USER_FETCHED: 'USER_FETCHED',
