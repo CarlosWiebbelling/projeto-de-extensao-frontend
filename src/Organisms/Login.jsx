@@ -22,8 +22,8 @@ export default props => {
 				</div>
 				<hr />
 				<div className='login-footer'>
-					<h4>Esqueceu sua senha?<button className="fakeA">redefinir</button></h4>
-					<h4>Não possui uma conta?<button className="fakeA" onClick={ props.changeMode }>criar conta</button></h4>
+					<h4>Esqueceu sua senha?<button className="fakeA afooter">redefinir</button></h4>
+					<h4>Não possui uma conta?<button className="fakeA afooter" onClick={ props.changeMode }>criar conta</button></h4>
 				</div>
 			</div>
 		</div>

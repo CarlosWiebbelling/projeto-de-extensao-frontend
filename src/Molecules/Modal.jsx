@@ -18,9 +18,14 @@ const Modal = ({ visibility, alterVisibility, children, title }) => {
 			</div>
 			<div className='modalEventContent col-12'>{children}</div>
 			<div className='modalEventFooter'>
-				<button className='btn btn-primary' onClick={alterVisibility}>
-					Close Modal
-				</button>
+				<div className='col-12' style={{ paddingRight: '30px' }}>
+					<button
+						className='btn btn-light'
+						style={{ border: '1px solid black' }}
+						onClick={alterVisibility}>
+						Close Modal
+					</button>
+				</div>
 			</div>
 		</ReactModal>
 	)

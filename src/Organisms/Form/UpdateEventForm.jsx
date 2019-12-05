@@ -28,20 +28,21 @@ export default ({ handleSubmit }) => (
 		{({ isSubmitting }) => (
 			<Form>
 				<h4 htmlFor='name'>Nome do Evento</h4>
-				<Field className='form' type='text' name='name' />
+				<Field className='form form-control' type='text' name='name' />
 				<ErrorMessage name='name' component='div' />
 
 				<h4 htmlFor='schedule'>Cronograma do Evento</h4>
-				<Field className='form' type='text' name='schedule' />
+				<Field className='form form-control' type='text' name='schedule' />
 				<ErrorMessage name='schedule' component='div' />
 
 				<h4 htmlFor='speaker'>Palestrante</h4>
-				<Field className='form' type='text' name='speaker' />
+				<Field className='form form-control' type='text' name='speaker' />
 				<ErrorMessage name='speaker' component='div' />
 
 				<button
 					type='submit'
-					className='btn-login'
+					className='btn btn-primary btn-login'
+					style={{ float: 'right' }}
 					disabled={isSubmitting} >
 					Atualizar Evento
 				</button>

@@ -50,8 +50,9 @@ export default ({ handleSubmit }) => (
 				<br />
 				<button
 					type='submit'
-					className='btn-login'
-					disabled={isSubmitting}>
+					className='btn btn-primary btn-login'
+					style={{ float: 'right' }}
+					disabled={isSubmitting} >
 					Cadastrar Evento
 				</button>
 			</Form>

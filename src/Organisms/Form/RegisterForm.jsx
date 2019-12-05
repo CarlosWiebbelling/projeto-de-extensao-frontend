@@ -43,7 +43,7 @@ const Register = ({ handleSubmit }) => (
 		{({ isSubmitting }) => (
 			<Form>
 				<h4 htmlFor='name'>Nome</h4>
-				<Field className='form' type='text' name='name' />
+				<Field className='form form-control' type='text' name='name' />
 				<ErrorMessage
 					name='name'
 					component='div'
@@ -51,7 +51,11 @@ const Register = ({ handleSubmit }) => (
 				/>
 
 				<h4 htmlFor='email'>Email</h4>
-				<Field className='form' type='email' name='email' />
+				<Field
+					className='form form-control'
+					type='email'
+					name='email'
+				/>
 				<ErrorMessage
 					name='email'
 					component='div'
@@ -60,7 +64,7 @@ const Register = ({ handleSubmit }) => (
 
 				<h4 htmlFor='password'>Senha</h4>
 				<Field
-					className='form'
+					className='form form-control'
 					type='password'
 					name='password'
 					style={{ marginBottom: '25px' }}
@@ -73,7 +77,7 @@ const Register = ({ handleSubmit }) => (
 
 				<h4 htmlFor='confirmPassword'>Confirmar Senha</h4>
 				<Field
-					className='form'
+					className='form form-control'
 					type='password'
 					name='confirmPassword'
 					style={{ marginBottom: '25px' }}
@@ -112,7 +116,8 @@ const Register = ({ handleSubmit }) => (
 					<div className='col-3'>
 						<button
 							type='submit'
-							className='btn btn-login'
+							className='btn btn-primary btn-login'
+							style={{ float: 'right' }}
 							disabled={isSubmitting}>
 							Registrar
 						</button>

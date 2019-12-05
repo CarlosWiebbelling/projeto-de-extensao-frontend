@@ -45,7 +45,8 @@ const Project = ({ handleSubmit }) => (
 				<br/>
 				<button
 					type='submit'
-					className='btn-login'
+					className='btn btn-primary btn-login'
+					style={{ float: 'right' }}
 					disabled={isSubmitting} >
 					Cadastrar projeto
 				</button>

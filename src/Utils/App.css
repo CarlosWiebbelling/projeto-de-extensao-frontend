@@ -76,7 +76,6 @@ body {
 .login button {
 	margin: 5px 0px;
 	height: 35px;
-	float: right;
 }
 
 .login .btn-register {
@@ -89,6 +88,7 @@ body {
 	color: #fff;
 	background-color: #349745;
 	border: none;
+	float: right !important
 }
 
 .login .btn-login:hover {
@@ -148,6 +148,10 @@ body {
 
 .login h4 {
 	font-size: 14px;
+}
+
+.login-footer {
+	margin-bottom: 20px;
 }
 
 /* Checkbox */
@@ -246,7 +250,6 @@ p {
     text-decoration: none;
 	background-color: transparent;
 	font-size: 16px;
-	float: right
 }
 
 a, .fakeA {
@@ -256,6 +259,13 @@ a, .fakeA {
 	text-decoration: none !important;
 	float: right;
 	box-shadow: none;
+}
+
+.afooter {
+	float: right !important;
+	padding: 0 !important;
+    height: 0px !important;
+    margin: 0 !important;
 }
 
 .btnCard {
