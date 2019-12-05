@@ -92,7 +92,7 @@ const Register = ({ handleSubmit }) => (
 					<div className='col-9'>
 						<div
 							className='form-group form-check'
-							style={{ padding: '0' }}>
+							style={{ padding: '0', marginTop: '10px' }}>
 							<input
 								type='checkbox'
 								id='cbx'

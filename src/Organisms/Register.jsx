@@ -11,7 +11,7 @@ export default props => {
 
 	return (
 		<div className='login'>
-			<div className='login-content'>
+			<div className='login-content' style={{ width: '522px' }}>
 				<div className='login-header'>
 					<img src={ifrsLogo} alt='logo' />
 				</div>
@@ -22,8 +22,8 @@ export default props => {
 				</div>
 				<hr />
 				<div className='login-footer'>
-					<h4>Esqueceu sua senha?<button className="fakeA">redefinir</button></h4>
-					<h4>Já possui uma conta?<button className="fakeA" onClick={ props.changeMode }>entrar</button></h4>
+					<h4>Esqueceu sua senha?<button className="fakeA afooter">redefinir</button></h4>
+					<h4>Já possui uma conta?<button className="fakeA afooter" onClick={ props.changeMode }>entrar</button></h4>
 				</div>
 			</div>
 		</div>
