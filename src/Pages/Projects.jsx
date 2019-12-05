@@ -5,7 +5,7 @@ import Card from '../Organisms/Card/index'
 import FormProject from '../Organisms/Form/ProjectForm'
 import UpdateUserForm from '../Organisms/Form/UpdateUserForm'
 
-import Modal from '../Organisms/Event'
+import Modal from '../Molecules/Modal'
 
 import {
 	postProject,
@@ -47,7 +47,9 @@ const Project = () => {
 					title='Adicionar projeto'
 					visibility={showModalProject}
 					alterVisibility={changeVisibilityProject}>
-					<FormProject handleSubmit={handleFormProject} />
+						<div className="col-12">
+							<FormProject handleSubmit={handleFormProject} />
+						</div>
 				</Modal>
 
                 <Modal

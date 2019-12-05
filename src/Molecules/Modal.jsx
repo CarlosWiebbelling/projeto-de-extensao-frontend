@@ -3,7 +3,12 @@ import ReactModal from 'react-modal'
 
 const Modal = ({ visibility, alterVisibility, children, title }) => {
 	const styles = {
-		
+		content: {
+			top: '70px',
+			left: '180px',
+			right: '180px',
+			bottom: '120px'
+		}
 	}
 
 	return (

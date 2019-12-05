@@ -22,11 +22,11 @@ const Login = ({ handleSubmit }) => (
 		{({ isSubmitting }) => (
 			<Form>
 				<h4 htmlFor='email'>Email</h4>
-				<Field className='form' type='email' name='email' />
+				<Field className='form form-control' type='email' name='email' />
 				<ErrorMessage name='email' component='div' />
 
 				<h4 htmlFor='password'>Senha</h4>
-				<Field className='form' type='password' name='password' style={{ marginBottom: '25px' }} />
+				<Field className='form form-control' type='password' name='password' style={{ marginBottom: '25px' }} />
 				<ErrorMessage name='password' component='div' />
 
 				<div className='row'>

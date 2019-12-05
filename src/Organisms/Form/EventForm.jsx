@@ -33,19 +33,19 @@ export default ({ handleSubmit }) => (
 		{({ isSubmitting }) => (
 			<Form>
 				<h4 htmlFor='name'>Nome do Evento</h4>
-				<Field className='form' type='text' name='name' />
+				<Field className='form form-control' type='text' name='name' />
 				<ErrorMessage name='name' component='div' />
 
 				<h4 htmlFor='project'>Projeto</h4>
-				<Field className='form' type='text' name='project' />
+				<Field className='form form-control' type='text' name='project' />
 				<ErrorMessage name='project' component='div' />
 
 				<h4 htmlFor='schedule'>Cronograma do Evento</h4>
-				<Field className='form' type='text' name='schedule' />
+				<Field className='form form-control' type='text' name='schedule' />
 				<ErrorMessage name='schedule' component='div' />
 
 				<h4 htmlFor='speaker'>Palestrante</h4>
-				<Field className='form' type='text' name='speaker' />
+				<Field className='form form-control' type='text' name='speaker' />
 				<ErrorMessage name='speaker' component='div' />
 				<br />
 				<button

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import EventForm from '../Form/EventForm'
-import Modal from '../Event'
+import Modal from '../../Molecules/Modal'
 
 const Card = ({ projects, deleteProject }) => {
 	const [showModal, alterShow] = useState(false)

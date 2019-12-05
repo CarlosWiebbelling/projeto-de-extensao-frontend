@@ -28,19 +28,19 @@ const Project = ({ handleSubmit }) => (
 		{({ isSubmitting }) => (
 			<Form>
 				<h4 htmlFor='name'>Nome do projeto</h4>
-				<Field className='form' type='text' name='name' />
+				<Field className='form form-control' type='text' name='name' />
 				<ErrorMessage name='name' component='div' />
 
 				<h4 htmlFor='description'>description</h4>
-				<Field className='form' type='text' name='description' />
+				<Field className='form form-control' type='text' name='description' />
 				<ErrorMessage name='description' component='div' />
 
 				<h4 htmlFor='tags'>tags</h4>
-				<Field className='form' type='text' name='tags' />
+				<Field className='form form-control' type='text' name='tags' />
 				<ErrorMessage name='tags' component='div' />
 
 				<h4 htmlFor='projectAdmins'>projectAdmins</h4>
-				<Field className='form' type='text' name='projectAdmins' />
+				<Field className='form form-control' type='text' name='projectAdmins' />
 				<ErrorMessage name='projectAdmins' component='div' />
 				<br/>
 				<button
