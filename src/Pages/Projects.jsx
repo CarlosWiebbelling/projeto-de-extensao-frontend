@@ -6,39 +6,33 @@ import FormProject from '../Organisms/Form/ProjectForm'
 import UpdateUserForm from '../Organisms/Form/UpdateUserForm'
 import EventForm from '../Organisms/Form/EventForm'
 
-import { postProject } from '../Redux/Actions/ProjectActions'
+import { postProject, getAllProjects, deleteProject } from '../Redux/Actions/ProjectActions'
 
 const Project = () => {
     const dispatch = useDispatch()
     const projects = useSelector(state => state.Project)
 
-    // useEffect(() => {
-    //     dispatch(getProjects())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getAllProjects())
+    }, [dispatch])
 
+    const handleForm = values => dispatch(postProject(values))
 
-    const handleForm = values => {
-        dispatch(postProject(values))
-    }
+    const handleDelete = id => dispatch(deleteProject(id))
 
     return (
         <div className="container">
-            <div className="row">
+            <div className="row row justify-content-around">
                 <div className="col-3" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
                     <FormProject handleSubmit={handleForm} />
                 </div>
-                <div className="col-3" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
+                <div className="col-4" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
                     <UpdateUserForm handleSubmit={() => console.log('NICE updateUser')} />
                 </div>
-                <div className="col-3" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
+                <div className="col-4" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
                     <EventForm handleSubmit={() => console.log('NICE event')} />
                 </div>
-                <div className="col-9">
-                    <Card projects={projects} />
-                </div>
-                {/* <div className="col-9">
-                    <Card events={events} />
-                </div> */}
+                <Card projects={ projects } deleteProject={ id => handleDelete(id) } />
             </div>
         </div>
     )

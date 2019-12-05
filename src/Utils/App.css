@@ -9,7 +9,11 @@
 }
 
 html {
-  width: 100%
+	width: 100%;
+}
+
+body {
+	min-width: 1000px
 }
 
 * {
@@ -218,10 +222,8 @@ html {
 	padding: 0
 }
 
-/* Card and Project */
-
+/* Card */
 .project {
-	width: 300px;
 	border-radius: 10px;
 	padding: 2px 10px;
 	background-color: #D6E7FF;
@@ -242,7 +244,7 @@ a {
 	position: relative;
 	right: 0;
 	color: #3d3d3d;
-	text-decoration: none;
+	text-decoration: none !important;
 	float: right;
 	margin-bottom: 10px;
 	margin-right: 15px;
@@ -272,6 +274,7 @@ a:hover {
 	font-size: 13px;
 }
 
+/* Event */
 .event {
 	display: flex;
 	align-items: center;
@@ -301,7 +304,7 @@ a:hover {
 .showMore {
 	border-radius: 50%;
 	margin-right: -25px;
-	padding: 10px 17px;
+	padding: 10px 20px;
 	background-color: #1f375f;
 	color: white;
 	font-size: 20px;
@@ -316,8 +319,8 @@ a:hover {
 }
 
 .showMore:hover {
-	padding: 14px 21px;
-	right: 27px;
+	padding: 11px 21px;
+	right: 29px;
 }
 
 .content .eventHeader {
@@ -333,6 +336,7 @@ a:hover {
 	align-self: center;
 }
 
+/* Badge */
 .badge {
 	align-self: center;
 	flex: auto;
@@ -342,7 +346,7 @@ a:hover {
 	cursor: default;
 }
 
-.badge .tech {
+.TECH {
 	background-color: var(--badge-dark-blue);
 	padding: 4px 6px;
 	margin: 0px 2px;
@@ -350,16 +354,7 @@ a:hover {
 	float: right;
 }
 
-/* .badge .div[class*="tech"] {
-	background: #198ec4;
-  }
-  
-  .badge .div[class*="adm"] {
-	background: #79a81e;
-  }
-   */
-
-.badge .psi {
+.PSI, .LG {
 	background-color: var(--badge-purple);
 	padding: 4px 6px;
 	margin: 0px 2px;
@@ -367,7 +362,7 @@ a:hover {
 	float: right;
 }
 
-.badge .adm {
+.ADM {
 	background-color: var(--badge-green);
 	padding: 4px 6px;
 	margin: 0px 2px;
@@ -375,7 +370,7 @@ a:hover {
 	float: right;
 }
 
-.badge .math {
+.MATH {
 	background-color: var(--badge-orange);
 	padding: 4px 6px;
 	margin: 0px 2px;
@@ -383,10 +378,22 @@ a:hover {
 	float: right;
 }
 
-.badge .word {
+.WORD {
 	background-color: var(--badge-pink);
 	padding: 4px 6px;
 	margin: 0px 2px;
 	border-radius: 4px;
 	float: right;
+}
+
+/* fa */
+.fas {	
+	font-weight: 600
+}
+
+h4 i {
+	font-size: 20px;
+    float: right;
+	margin: 7px 7px 0 0;
+	cursor: pointer;
 }

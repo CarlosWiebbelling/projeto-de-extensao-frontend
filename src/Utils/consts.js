@@ -1,5 +1,5 @@
 module.exports = {
-    BASE_URL: 'http://10.132.84.23:3001',
+    BASE_URL: 'http://0.0.0.0:3001',
     KEY_STORAGE: 'projeto_extensao',
     TOKEN_FETCHED: 'TOKEN_FETCHED',
     PROJECT_FETCHED: 'PROJECT_FETCHED',
@@ -11,3 +11,5 @@ module.exports = {
     PROJECT_FETCHED_ONE: 'PROJECT_FETCHED_ONE',
     PROJECT_DELETED: 'PROJECT_DELETED'
 }
+
+// db.users.update({ _id: ObjectId("5de9154592362f5c33441f78")}, {	"certificates" : [ ], "level" : 3, "name" : "Carlos Eduardo Wiebbelling", "email" : "carlos@westpoint.io", "password" : "$2b$10$..kFPnDsRIUY8yH/rC5JaeQOj2cY7L14e7zcP.BWbzBk.TZvOeHZ6", "projectsInCharge" : [ ], "eventsSubscribed" : [ ], "projectsSubscribed" : [ ], "createdAt" : ISODate("2019-12-05T14:33:41.297Z"), "__v" : 0})

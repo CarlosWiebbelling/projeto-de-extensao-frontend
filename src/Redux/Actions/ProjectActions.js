@@ -53,28 +53,29 @@ export const postProject = values => dispatch => {
         }
     ]
 
+    console.log(values)
+
     axios.post(`${BASE_URL}/project`, values)
-        .then(response => {
-            console.log(response)
+        .then(response =>
             dispatch(getAllProjects())
-        })
-        .catch(error => {
-            console.error(error)
+        )
+        .catch(error =>
             dispatch({
                 type: "NOTHING"
             })
-        })
+        )
 }
 
-export const deleteProject = values => dispatch => {
-    axios.get(`${ BASE_URL }/project/${ values._id }`)
-        .then(response => {
-            dispatch(getAllProjects())
-                dispatch({
-                    type: PROJECT_DELETED,
-                    payload: response.data.projects
-                })
-            }
-        )
-        .catch(error => console.error(error))
+export const deleteProject = id => dispatch => {
+    console.log(`${ BASE_URL }/project/${ id }`)
+    // axios.get(`${ BASE_URL }/project/${ id }`)
+    //     .then(response => {
+    //         dispatch(getAllProjects())
+    //             dispatch({
+    //                 type: PROJECT_DELETED,
+    //                 payload: response.data.projects
+    //             })
+    //         }
+    //     )
+    //     .catch(error => console.error(error))
 }

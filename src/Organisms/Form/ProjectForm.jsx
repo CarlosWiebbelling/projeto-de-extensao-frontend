@@ -42,7 +42,7 @@ const Project = ({ handleSubmit }) => (
 				<h4 htmlFor='projectAdmins'>projectAdmins</h4>
 				<Field className='form' type='text' name='projectAdmins' />
 				<ErrorMessage name='projectAdmins' component='div' />
-
+				<br/>
 				<button
 					type='submit'
 					className='btn-login'
