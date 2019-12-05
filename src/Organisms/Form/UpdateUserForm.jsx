@@ -67,6 +67,8 @@ export default ({ handleSubmit }) => (
                 <Field className="form" type="number" name="level" style={{ marginBottom: "25px" }} />
                 <ErrorMessage name='level' component='div' className='error-msg' />
 
+                <br/>
+                
                 <button type="submit" className="btn btn-primary btn-login" disabled={isSubmitting}>
                     Atualizar
                 </button>

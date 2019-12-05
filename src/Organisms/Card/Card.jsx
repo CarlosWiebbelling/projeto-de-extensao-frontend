@@ -9,7 +9,7 @@ const Card = ({ projects, deleteProject }) => {
 
 	const renderProjects = () =>
 		projects.projects.map(project => (
-			<div className='col-5'>
+			<div className='col-5' key={project._id}>
 				<div className='project'>
 					<div className='header'>
 						<h4 className='titleProject'>
@@ -26,32 +26,27 @@ const Card = ({ projects, deleteProject }) => {
 							voluptatibus magni, veritatis nisi a!
 						</p>
 
-						<a
-							href='http://google.com'
-							target='_blank'
-							rel='noopener noreferrer'>
+						<button className='fakeA'>
 							see more <i className='fas fa-angle-right'></i>
-						</a>
+						</button>
 						<Modal
-                            title="Adicionar evento"
+							title='Adicionar evento'
 							visibility={showModal}
 							alterVisibility={changeVisibility}>
 							<EventForm
 								handleSubmit={() => console.log('NICE event')}
 							/>
 						</Modal>
-						<a
-							onClick={changeVisibility}
-							target='_blank'
-							rel='noopener noreferrer'>
+
+						<button className='fakeA' onClick={changeVisibility}>
 							add evento{' '}
 							<i
 								className='fas fa-plus'
-								style={{ 'font-size': '15px' }}></i>
-						</a>
+								style={{ fontSize: '15px' }}></i>
+						</button>
 
 						{project.tags.map(tag => (
-							<div className='badge'>
+							<div className='badge' key={tag._id}>
 								<span className={tag.name}>{tag.name}</span>
 							</div>
 						))}

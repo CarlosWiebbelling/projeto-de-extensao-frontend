@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactModal from 'react-modal'
 
 const Modal = ({ visibility, alterVisibility, children, title }) => (
-	<ReactModal isOpen={visibility}>
+	<ReactModal isOpen={visibility} ariaHideApp={false}>
 		<div className="modalEventHeader">
 			<h2>{ title }</h2>
 		</div>
@@ -10,7 +10,7 @@ const Modal = ({ visibility, alterVisibility, children, title }) => (
 			{ children }
 		</div>
 		<div className="modalEventFooter">
-			<button class="btn btn-primary" onClick={alterVisibility}>Close Modal</button>
+			<button className="btn btn-primary" onClick={alterVisibility}>Close Modal</button>
 		</div>
 	</ReactModal>
 )

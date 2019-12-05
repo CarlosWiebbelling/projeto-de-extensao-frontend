@@ -1,39 +1,67 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import Card from "../Organisms/Card/index";
+import Card from '../Organisms/Card/index'
 import FormProject from '../Organisms/Form/ProjectForm'
 import UpdateUserForm from '../Organisms/Form/UpdateUserForm'
-import EventForm from '../Organisms/Form/EventForm'
 
-import { postProject, getAllProjects, deleteProject } from '../Redux/Actions/ProjectActions'
+import Modal from '../Organisms/Event'
+
+import {
+	postProject,
+	getAllProjects,
+	deleteProject
+} from '../Redux/Actions/ProjectActions'
 
 const Project = () => {
-    const dispatch = useDispatch()
-    const projects = useSelector(state => state.Project)
+	const dispatch = useDispatch()
+	const projects = useSelector(state => state.Project)
 
-    useEffect(() => {
-        dispatch(getAllProjects())
-    }, [dispatch])
+	useEffect(() => dispatch(getAllProjects()), [dispatch])
+    
+    // Project
+	const [showModalProject, alterShowProject] = useState(false)
+	const changeVisibilityProject = () => alterShowProject(!showModalProject)
 
-    const handleForm = values => dispatch(postProject(values))
+    // User
+	const [showModalUser, alterShowUser] = useState(false)
+	const changeVisibilityUser = () => alterShowUser(!showModalUser)
 
-    const handleDelete = id => dispatch(deleteProject(id))
+	const handleFormProject = values => {
+        dispatch(postProject(values))
+        changeVisibilityProject()
+    }
 
-    return (
-        <div className="container">
-            <div className="row row justify-content-around">
-                <div className="col-3" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
-                    <FormProject handleSubmit={handleForm} />
-                </div>
-                <div className="col-4" style={{ backgroundColor: '#e6e6e6', margin: '8px' }}>
-                    <UpdateUserForm handleSubmit={() => console.log('NICE updateUser')} />
-                </div>
-                <Card projects={ projects } deleteProject={ id => handleDelete(id) } />
-            </div>
-        </div>
-    )
+	const handleDelete = id => dispatch(deleteProject(id))
+
+	return (
+		<div className='container'>
+            <button className="btn btn-primary" onClick={ () => changeVisibilityProject() }>Add project</button><br/>
+            <button className="btn btn-primary" onClick={ () => changeVisibilityUser() }>Update user</button>
+			
+            <div className='row justify-content-around'>
+				<Modal
+					title='Adicionar projeto'
+					visibility={showModalProject}
+					alterVisibility={changeVisibilityProject}>
+					<FormProject handleSubmit={handleFormProject} />
+				</Modal>
+
+                <Modal
+					title='Atualizar usuário'
+					visibility={showModalUser}
+					alterVisibility={changeVisibilityUser}>
+					<UpdateUserForm
+						handleSubmit={() => console.log('NICE updateUser')}
+					/>
+				</Modal>
+
+				<Card
+					projects={projects}
+					deleteProject={id => handleDelete(id)} />
+			</div>
+		</div>
+	)
 }
-
 
 export default Project

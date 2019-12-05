@@ -4,7 +4,7 @@ import {
     BASE_URL,
     PROJECT_FETCHED,
     PROJECT_FETCHED_ONE,
-    PROJECT_DELETED
+    // PROJECT_DELETED
 } from '../../Utils/consts'
 
 export const getAllProjects = () => dispatch => {
@@ -52,8 +52,6 @@ export const postProject = values => dispatch => {
             name: 'Andrei Deniz'
         }
     ]
-
-    console.log(values)
 
     axios.post(`${BASE_URL}/project`, values)
         .then(response =>

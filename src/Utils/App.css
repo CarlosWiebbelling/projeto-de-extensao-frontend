@@ -240,21 +240,33 @@ p {
 	color: #3d3d3d;
 }
 
-a {
+/* Fake A href */
+.fakeA {
+	border: none;
+    outline: none;
+    text-decoration: none;
+	background-color: transparent;
+	font-size: 16px;
+	float: right
+}
+
+a, .fakeA {
 	position: relative;
 	right: 0;
-	color: #3d3d3d;
+	color: #0056b3;
 	text-decoration: none !important;
 	float: right;
 	margin-bottom: 10px;
 	margin-right: 15px;
 	transition: 0.2s;
+	box-shadow: none;
 }
 
-a:hover {
+a:hover, .fakeA:hover, .fakeA:focus {
 	margin-top: -1px;
 	margin-right: 12px;
-	font-size: 17px
+	font-size: 17px;
+	outline: 0
 }
 
 .project .header p {
@@ -399,7 +411,6 @@ h4 i {
 }
 
 /* Modal Event */
-
 .modalEventHeader {
 
 }
