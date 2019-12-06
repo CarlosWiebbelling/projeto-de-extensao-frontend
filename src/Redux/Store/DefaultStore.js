@@ -11,7 +11,9 @@ export const projects = []
 
 export const user = {
 	currentLogged: {
-		level: 3
+		email: null, 															// "carlos@westpoint.io"
+		id: null,																	// "5de1bbd2b44e6a3cc9ae5493"
+		level: null
 	},
 	users: []
 }
