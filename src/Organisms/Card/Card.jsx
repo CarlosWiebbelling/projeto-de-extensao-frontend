@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
+import Badge from '../../Molecules/Badge'
 import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
 import Modal from '../../Molecules/Modal'
@@ -31,12 +32,15 @@ const Card = ({ projects, deleteProject }) => {
 							{user.currentLogged.level === 3 && (
 								<i
 									className='fas fa-edit'
-									style={{ fontWeight: 200, fontSize: '17px', marginRight: '13px' }}
+									style={{
+										fontWeight: 200,
+										fontSize: '17px',
+										marginRight: '13px'
+									}}
 									onClick={() =>
 										deleteProject(project._id)
 									}></i>
 							)}
-
 						</h4>
 						<p>
 							Lorem ipsum dolor sit amet consectetur, adipisicing
@@ -66,19 +70,16 @@ const Card = ({ projects, deleteProject }) => {
 								className='fas fa-plus'
 								style={{ fontSize: '15px' }}></i>
 						</button>
-
+						
+						<Badge tags={ project.tags } />
 					</div>
-
-					<Event events={ [] }/>
+					<Event events={ project.events } />
 				</div>
 			</div>
 		))
 
-	return projects.projects === undefined ? (
-		<h1>Nothing to show</h1>
-	) : (
-		renderProjects()
-	)
+	return projects.projects === undefined ? <h1>Nothing to show</h1> : renderProjects()
+
 }
 
 export default Card
