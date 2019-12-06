@@ -1,5 +1,5 @@
 module.exports = {
-    BASE_URL: 'http://0.0.0.0:3001',
+    BASE_URL: 'http://10.132.84.30:3001',
     KEY_STORAGE: 'projeto_extensao',
     TOKEN_FETCHED: 'TOKEN_FETCHED',
     SIGN_OUT: 'SIGN_OUT',

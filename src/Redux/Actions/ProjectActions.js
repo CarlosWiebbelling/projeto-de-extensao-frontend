@@ -19,7 +19,7 @@ export const getAllProjects = () => dispatch => {
 }
 
 export const getOneProject = values => dispatch => {
-    axios.get(`${ BASE_URL }/project/${ values._id }`)
+    axios.get(`${BASE_URL}/project/${values._id}`)
         .then(response =>
             dispatch({
                 type: PROJECT_FETCHED_ONE,
@@ -41,17 +41,8 @@ export const postProject = values => dispatch => {
             name: 'LG'
         }
     ]
-    values['projectAdmins'] = [
-        {
-            name: 'Carlos Eduardo'
-        },
-        {
-            name: 'Gabriel Pucinelli'
-        },
-        {
-            name: 'Andrei Deniz'
-        }
-    ]
+
+    values['projectAdmins'] = ['pablo2@gmail.com', 'carlos@westpoint.io']
 
     axios.post(`${BASE_URL}/project`, values)
         .then(response =>
@@ -65,15 +56,11 @@ export const postProject = values => dispatch => {
 }
 
 export const deleteProject = id => dispatch => {
-    console.log(`${ BASE_URL }/project/${ id }`)
-    // axios.get(`${ BASE_URL }/project/${ id }`)
-    //     .then(response => {
-    //         dispatch(getAllProjects())
-    //             dispatch({
-    //                 type: PROJECT_DELETED,
-    //                 payload: response.data.projects
-    //             })
-    //         }
-    //     )
-    //     .catch(error => console.error(error))
+    axios.delete(`${BASE_URL}/project/${id}`)
+        .then(response => {
+            dispatch(getAllProjects())
+            dispatch(getAllProjects())
+        }
+        )
+        .catch(error => console.error(error))
 }
