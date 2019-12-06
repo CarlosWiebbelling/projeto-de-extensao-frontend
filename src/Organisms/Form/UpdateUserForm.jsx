@@ -42,7 +42,7 @@ export default ({ handleSubmit }) => (
 		}}>
 		{({ isSubmitting }) => (
 			<Form>
-				<h4 htmlFor='name'>Nome</h4>
+				<label htmlFor='name'>Nome</label>
 				<Field className='form form-control' type='text' name='name' />
 				<ErrorMessage
 					name='name'
@@ -50,7 +50,7 @@ export default ({ handleSubmit }) => (
 					className='error-msg'
 				/>
 
-				<h4 htmlFor='email'>Email</h4>
+				<label htmlFor='email'>Email</label>
 				<Field
 					className='form form-control'
 					type='email'
@@ -62,7 +62,7 @@ export default ({ handleSubmit }) => (
 					className='error-msg'
 				/>
 
-				<h4 htmlFor='enrollment'>Matrícula</h4>
+				<label htmlFor='enrollment'>Matrícula</label>
 				<Field
 					className='form form-control'
 					type='text'
@@ -74,7 +74,7 @@ export default ({ handleSubmit }) => (
 					className='error-msg'
 				/>
 
-				<h4 htmlFor='currentPassword'>Senha Atual</h4>
+				<label htmlFor='currentPassword'>Senha Atual</label>
 				<Field
 					className='form form-control'
 					type='password'
@@ -87,7 +87,7 @@ export default ({ handleSubmit }) => (
 					className='error-msg'
 				/>
 
-				<h4 htmlFor='newPassword'>Nova Senha</h4>
+				<label htmlFor='newPassword'>Nova Senha</label>
 				<Field
 					className='form form-control'
 					type='password'
@@ -100,7 +100,7 @@ export default ({ handleSubmit }) => (
 					className='error-msg'
 				/>
 
-				<h4 htmlFor='confirmPassword'>Confirmar Nova Senha</h4>
+				<label htmlFor='confirmPassword'>Confirmar Nova Senha</label>
 				<Field
 					className='form form-control'
 					type='password'
@@ -113,7 +113,7 @@ export default ({ handleSubmit }) => (
 					className='error-msg'
 				/>
 
-				<h4 htmlFor='level'>Nível de Acesso</h4>
+				<label htmlFor='level'>Nível de Acesso</label>
 				<Field
 					className='form form-control'
 					type='number'

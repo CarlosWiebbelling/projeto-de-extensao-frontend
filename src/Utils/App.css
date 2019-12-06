@@ -8,6 +8,10 @@
 	--badge-orange: #f09232;
 }
 
+.form {
+	margin-bottom: 25px;
+}
+
 html {
 	width: 100%;
 }

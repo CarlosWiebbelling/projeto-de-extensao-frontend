@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
+import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
 import Modal from '../../Molecules/Modal'
 
@@ -26,6 +27,16 @@ const Card = ({ projects, deleteProject }) => {
 										deleteProject(project._id)
 									}></i>
 							)}
+
+							{user.currentLogged.level === 3 && (
+								<i
+									className='fas fa-edit'
+									style={{ fontWeight: 200, fontSize: '17px', marginRight: '13px' }}
+									onClick={() =>
+										deleteProject(project._id)
+									}></i>
+							)}
+
 						</h4>
 						<p>
 							Lorem ipsum dolor sit amet consectetur, adipisicing
@@ -50,38 +61,15 @@ const Card = ({ projects, deleteProject }) => {
 						<button
 							className='fakeA btnCard'
 							onClick={changeVisibility}>
-							add evento{' '}
+							novo evento{' '}
 							<i
 								className='fas fa-plus'
 								style={{ fontSize: '15px' }}></i>
 						</button>
 
-						{project.tags.map(tag => (
-							<div className='badge' key={tag._id}>
-								<span className={tag.name}>{tag.name}</span>
-							</div>
-						))}
 					</div>
 
-					<div className='event'>
-						<div className='content'>
-							<div className='eventHeader'>
-								<span className='title'>Title</span>
-								<span className='date'>10/11/2019</span>
-								<div className='badge'>
-									<span className='adm'>ADM</span>
-								</div>
-							</div>
-							<p>
-								Des crip tion des crip tion des crip tion des
-								crip tion des crip tion des crip tion des crip
-								tion
-							</p>
-						</div>
-						<div className='showMore'>
-							<i className='fas fa-angle-right'></i>
-						</div>
-					</div>
+					<Event events={ [] }/>
 				</div>
 			</div>
 		))
