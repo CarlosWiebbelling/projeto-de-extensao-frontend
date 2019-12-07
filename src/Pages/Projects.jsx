@@ -21,17 +21,23 @@ const Project = () => {
 
 	useEffect(() => dispatch(getAllProjects()), [dispatch])
 
-	// Project
-	const [showModalProject, alterShowProject] = useState(false)
-	const changeVisibilityProject = () => alterShowProject(!showModalProject)
-
-	// User
-	const [showModalUser, alterShowUser] = useState(false)
-	const changeVisibilityUser = () => alterShowUser(!showModalUser)
+	// Modal
+	const [modalTitle, setModalTitle] = useState('');
+	const [modalVisible, setModalVisible] = useState(false);
+	const [modalContent, setModalContent] = useState('');
+	const changeModal = ({ title, visible, content }) => {
+		setModalTitle(title);
+		setModalVisible(visible);
+		setModalContent(content);
+	}
 
 	const handleFormProject = values => {
-		dispatch(postProject(values))
-		changeVisibilityProject()
+		dispatch(postProject(values));
+		changeModal({
+			title: 'Adicionar projeto',
+			visible: !modalVisible,
+			content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+		});
 	}
 
 	const handleDelete = id => dispatch(deleteProject(id))
@@ -40,13 +46,21 @@ const Project = () => {
 		<div className='container'>
 			<button
 				className='btn btn-primary'
-				onClick={() => changeVisibilityProject()}>
+				onClick={() => changeModal({
+					title: 'Adicionar projeto',
+					visible: !modalVisible,
+					content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+				})}>
 				Add project
 			</button>
 			<button
 				className='btn btn-primary'
 				style={{ margin: '0px 15px' }}
-				onClick={() => changeVisibilityUser()}>
+				onClick={() => changeModal({
+					title: 'Atualizar usuário',
+					visible: !modalVisible,
+					content: (<div className='col-12'><UpdateUserForm handleSubmit={() => console.log('NICE updateUser')} /></div>)
+				})}>
 				Update user
 			</button>
 			<button
@@ -56,30 +70,23 @@ const Project = () => {
 			</button>
 
 			<div className='row justify-content-around'>
-				<Modal
-					title='Adicionar projeto'
-					visibility={showModalProject}
-					alterVisibility={changeVisibilityProject}>
-					<div className='col-12'>
-						<FormProject handleSubmit={handleFormProject} />
-					</div>
-				</Modal>
-
-				<Modal
-					title='Atualizar usuário'
-					visibility={showModalUser}
-					alterVisibility={changeVisibilityUser}>
-					<div className='col-12'>
-						<UpdateUserForm
-							handleSubmit={() => console.log('NICE updateUser')}
-						/>
-					</div>
-				</Modal>
 
 				<Card
 					projects={projects}
 					deleteProject={id => handleDelete(id)}
+					openModal={(data) => {
+						changeModal(data)
+						setModalVisible(!modalVisible)
+					}}
+
 				/>
+
+				<Modal
+					title={modalTitle}
+					visibility={modalVisible}
+					alterVisibility={() => setModalVisible(!modalVisible)}>
+					{modalContent}
+				</Modal>
 			</div>
 		</div>
 	)

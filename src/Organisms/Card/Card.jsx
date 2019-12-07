@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 import Badge from '../../Molecules/Badge'
 import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
-import Modal from '../../Molecules/Modal'
 
-const Card = ({ projects, deleteProject }) => {
-	const [showModal, alterShow] = useState(false)
-	const changeVisibility = () => alterShow(!showModal)
+const Card = ({ projects, deleteProject, openModal }) => {
+	const changeVisibility = () => {
+		openModal({
+			title: 'Adicionar evento',
+			content: (<EventForm handleSubmit={() => console.log('NICE event')} />)
+		})
+	}
 
 	const user = useSelector(state => state.User)
 
@@ -53,48 +56,35 @@ const Card = ({ projects, deleteProject }) => {
 							see more
 							<i className='fas fa-angle-right'></i>
 						</button>
-
-						<Modal
-							title='Adicionar evento'
-							visibility={showModal}
-							alterVisibility={changeVisibility}>
-							<EventForm
-								handleSubmit={() => console.log('NICE event')}
-							/>
-						</Modal>
-
-						{user.currentLogged.level === 3 && (
-							<button
-								className='fakeA btnCard'
-								onClick={changeVisibility}>
-								novo evento{' '}
-								<i
-									className='fas fa-plus'
-									style={{ fontSize: '15px' }}></i>
-							</button>
-						)}
+						<button
+							className='fakeA btnCard'
+							onClick={changeVisibility}>
+							novo evento{' '}
+							<i
+								className='fas fa-plus'
+								style={{ fontSize: '15px' }}></i>
+						</button>
 
 						<Badge tags={project.tags} />
 					</div>
-					<Event
-						events={
-							[
-								{
-									_id: 123123,
-									title: 'Evento fake 1',
-									date: '15/12/2019',
-									description: 'AS A SD ASD AWD AS D d SD  d AS As',
-									tags:
-										[
-											{
-												name: 'TECH'
-											}, {
-												name: 'LG'
-											}
-										]
-								}
-							]
-						} /> 						{/* events={project.events} */}
+					<Event events={
+						[
+							{
+								_id: 123123,
+								title: 'Evento fake 1',
+								date: '15/12/2019',
+								description: 'AS A SD ASD AWD AS D d SD  d AS As',
+								tags:
+									[
+										{
+											name: 'TECH'
+										}, {
+											name: 'LG'
+										}
+									]
+							}
+						]
+					} />
 				</div>
 			</div>
 		))

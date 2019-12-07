@@ -148,7 +148,7 @@ body {
 
 .login a {
 	margin-left: 5px;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .login h4 {
@@ -230,6 +230,9 @@ body {
 	padding: 0
 }
 
+.form-check a {
+	float: none;
+}
 /* Card */
 .project {
 	border-radius: 10px;
@@ -254,7 +257,7 @@ p {
     outline: none;
     text-decoration: none;
 	background-color: transparent;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 a, .fakeA {
@@ -282,7 +285,7 @@ a, .fakeA {
 a:hover, .btnCard:hover, .btnCard:focus {
 	margin-top: -1px;
 	margin-right: 12px;
-	font-size: 17px;
+	font-size: 15px;
 	outline: 0
 }
 
