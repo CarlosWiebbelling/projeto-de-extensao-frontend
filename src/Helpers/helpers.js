@@ -1,12 +1,28 @@
 import colors from './colors'
 
-const tagsSpliter = (tags) => {
-    return tags.split(/[\s, \-\/\;\:]+/);
+const stringToHash = (string) => { 
+    var hash = 0; 
+      
+    if (string.length === 0) return hash; 
+      
+    for (let i = 0; i < string.length; i++) { 
+        let char = string.charCodeAt(i); 
+        hash = ((hash << 5) - hash) + char; 
+        hash = hash & hash; 
+    } 
+      
+    return Math.abs(hash); 
 }
 
-const generateTagsColor = (tags) => {
-    const colorsList = Object.values(colors);
-    const tagsColored = {};
+export const tagsSpliter = (tags) => {
+    return tags.split(/[^a-zA-Z\d:#]+/).map(tag => tag.toUpperCase());
+}
 
-    return tags.map(el => ({ color: colorsList[el.length % colorsList.length], name: el }));
-} 
+export const adminSpliter = (admins) => {
+    return admins.split(/[^a-zA-Z\d:@./\-_]+/).map(tag => tag.toUpperCase());
+}
+
+export const generateTagsColor = (tag) => {
+    const colorsList = Object.values(colors);
+    return { color: colorsList[stringToHash(tag) % colorsList.length], name: tag };
+}

@@ -1,4 +1,4 @@
-export default colors = {
+export default {
     red: "#f44336",
     pink: "#ec407a",
     purple: "#ab47bc",

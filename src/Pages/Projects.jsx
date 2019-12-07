@@ -25,7 +25,7 @@ const Project = () => {
 	const [modalTitle, setModalTitle] = useState('');
 	const [modalVisible, setModalVisible] = useState(false);
 	const [modalContent, setModalContent] = useState('');
-	const changeModal = ({ title, visible, content }) => {
+	const changeModal = ({ title = modalTitle, visible = modalVisible, content = modalContent }) => {
 		setModalTitle(title);
 		setModalVisible(visible);
 		setModalContent(content);
@@ -74,7 +74,7 @@ const Project = () => {
 				<Card
 					projects={projects}
 					deleteProject={id => handleDelete(id)}
-					openModal={(data) => {
+					openModal={data => {
 						changeModal(data)
 						setModalVisible(!modalVisible)
 					}}

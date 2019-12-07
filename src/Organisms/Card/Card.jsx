@@ -6,12 +6,10 @@ import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
 
 const Card = ({ projects, deleteProject, openModal }) => {
-	const changeVisibility = () => {
-		openModal({
-			title: 'Adicionar evento',
-			content: (<EventForm handleSubmit={() => console.log('NICE event')} />)
-		})
-	}
+	const changeVisibility = () => openModal({
+		title: 'Adicionar evento',
+		content: (<EventForm handleSubmit={() => console.log('NICE event')} />)
+	})
 
 	const user = useSelector(state => state.User)
 
