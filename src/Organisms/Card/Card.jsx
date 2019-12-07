@@ -6,6 +6,7 @@ import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
 
 const Card = ({ projects, deleteProject, openModal }) => {
+
 	const changeVisibility = () => {
 		openModal({
 			title: 'Adicionar evento',
@@ -13,7 +14,10 @@ const Card = ({ projects, deleteProject, openModal }) => {
 		})
 	}
 
-	const user = useSelector(state => state.User)
+	const user = useSelector(state => state.User.currentLogged)
+
+	console.log(user)
+	console.log(projects)
 
 	const renderProjects = () =>
 		projects.projects.map(project => (
@@ -23,7 +27,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 						<h4 className='titleProject'>
 							{project.name}
 
-							{user.currentLogged.level === 3 && (
+							{user.level === 3 && (
 								<i
 									className='fas fa-close'
 									onClick={() =>
@@ -31,7 +35,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 									}></i>
 							)}
 
-							{user.currentLogged.level === 3 && (
+							{user.level === 3 && (
 								<i
 									className='fas fa-edit'
 									style={{
@@ -40,7 +44,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 										marginRight: '13px'
 									}}
 									onClick={() =>
-										deleteProject(project._id)
+										console.log(project._id)
 									}></i>
 							)}
 						</h4>
@@ -56,35 +60,20 @@ const Card = ({ projects, deleteProject, openModal }) => {
 							see more
 							<i className='fas fa-angle-right'></i>
 						</button>
-						<button
-							className='fakeA btnCard'
-							onClick={changeVisibility}>
-							novo evento{' '}
-							<i
-								className='fas fa-plus'
-								style={{ fontSize: '15px' }}></i>
-						</button>
 
+						{project.projectAdmins.find(element => element._id !== user._id) && (
+							<button
+								className='fakeA btnCard'
+								onClick={changeVisibility}>
+								novo evento{' '}
+								<i
+									className='fas fa-plus'
+									style={{ fontSize: '15px' }}></i>
+							</button>
+						)}
 						<Badge tags={project.tags} />
 					</div>
-					<Event events={
-						[
-							{
-								_id: 123123,
-								title: 'Evento fake 1',
-								date: '15/12/2019',
-								description: 'AS A SD ASD AWD AS D d SD  d AS As',
-								tags:
-									[
-										{
-											name: 'TECH'
-										}, {
-											name: 'LG'
-										}
-									]
-							}
-						]
-					} />
+					<Event events={project.events} />
 				</div>
 			</div>
 		))
