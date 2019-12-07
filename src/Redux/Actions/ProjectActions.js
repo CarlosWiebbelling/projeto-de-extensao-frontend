@@ -59,7 +59,6 @@ export const deleteProject = id => dispatch => {
     axios.delete(`${BASE_URL}/project/${id}`)
         .then(response => {
             dispatch(getAllProjects())
-            dispatch(getAllProjects())
         }
         )
         .catch(error => console.error(error))

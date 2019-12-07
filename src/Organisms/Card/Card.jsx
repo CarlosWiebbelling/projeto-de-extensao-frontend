@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 import Badge from '../../Molecules/Badge'
 import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
-import Modal from '../../Molecules/Modal'
 
-const Card = ({ projects, deleteProject }) => {
-	const [showModal, alterShow] = useState(false)
-	const changeVisibility = () => alterShow(!showModal)
+const Card = ({ projects, deleteProject, openModal }) => {
+	const changeVisibility = () => {
+		openModal({
+			title: 'Adicionar evento',
+			content: (<EventForm handleSubmit={() => console.log('NICE event')} />)
+		})
+	}
 
 	const user = useSelector(state => state.User)
 	console.log(user.currentLogged)
@@ -53,14 +56,6 @@ const Card = ({ projects, deleteProject }) => {
 						<button className='fakeA btnCard'>
 							see more <i className='fas fa-angle-right'></i>
 						</button>
-						<Modal
-							title='Adicionar evento'
-							visibility={showModal}
-							alterVisibility={changeVisibility}>
-							<EventForm
-								handleSubmit={() => console.log('NICE event')}
-							/>
-						</Modal>
 
 						<button
 							className='fakeA btnCard'
@@ -70,10 +65,10 @@ const Card = ({ projects, deleteProject }) => {
 								className='fas fa-plus'
 								style={{ fontSize: '15px' }}></i>
 						</button>
-						
-						<Badge tags={ project.tags } />
+
+						<Badge tags={project.tags} />
 					</div>
-					<Event events={ project.events } />
+					<Event events={project.events} />
 				</div>
 			</div>
 		))

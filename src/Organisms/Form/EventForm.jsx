@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-export default ({ handleSubmit }) => (
+const EventForm = ({ handleSubmit }) => (
 	<Formik
 		initialValues={{
 			name: '',
@@ -12,17 +12,17 @@ export default ({ handleSubmit }) => (
 		validate={values => {
 			let errors = {}
 
-			// if (!values.name)
-			//     errors.name = 'Required'
+			if (!values.name)
+			    errors.name = 'Required'
 
-			// if (!values.description)
-			// 	errors.description = 'Required'
+			if (!values.description)
+				errors.description = 'Required'
 
-			// if (!values.tags)
-			// 	errors.tags = 'Required'
+			if (!values.tags)
+				errors.tags = 'Required'
 
-			// if (!values.projectAdmins)
-			//     errors.projectAdmins = 'Required'
+			if (!values.projectAdmins)
+			    errors.projectAdmins = 'Required'
 
 			return errors
 		}}
@@ -59,3 +59,5 @@ export default ({ handleSubmit }) => (
 		)}
 	</Formik>
 )
+
+export default EventForm
