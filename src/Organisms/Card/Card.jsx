@@ -50,8 +50,10 @@ const Card = ({ projects, deleteProject }) => {
 						</p>
 
 						<button className='fakeA btnCard'>
-							see more <i className='fas fa-angle-right'></i>
+							see more
+							<i className='fas fa-angle-right'></i>
 						</button>
+
 						<Modal
 							title='Adicionar evento'
 							visibility={showModal}
@@ -74,7 +76,25 @@ const Card = ({ projects, deleteProject }) => {
 
 						<Badge tags={project.tags} />
 					</div>
-					<Event events={project.events} />
+					<Event
+						events={
+							[
+								{
+									_id: 123123,
+									title: 'Evento fake 1',
+									date: '15/12/2019',
+									description: 'AS A SD ASD AWD AS D d SD  d AS As',
+									tags:
+										[
+											{
+												name: 'TECH'
+											}, {
+												name: 'LG'
+											}
+										]
+								}
+							]
+						} /> 						{/* events={project.events} */}
 				</div>
 			</div>
 		))

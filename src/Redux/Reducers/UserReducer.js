@@ -3,7 +3,6 @@ import { user } from '../Store/DefaultStore'
 import { jwtDecoder } from '../../Helpers/JWT'
 
 import {
-    USER_FETCHED,
     USER_FETCHED_ALL,
     TOKEN_FETCHED
 } from '../../Utils/consts'
