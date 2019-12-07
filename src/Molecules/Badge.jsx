@@ -6,7 +6,7 @@ const Badge = ({ tags }) => {
 	const renderBadge = () =>
 		tags.map(tag => (
 			<div className='badge' key={ tag._id }>
-				<span className={ tags } style={{backgroundColor: generateTagsColor()}}>{ tag.name }</span>
+				<span className={ tags } style={{backgroundColor: generateTagsColor(tag.name)}}>{ tag.name }</span>
 			</div>
 		))
 
