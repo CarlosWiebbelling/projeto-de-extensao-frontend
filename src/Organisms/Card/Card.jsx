@@ -11,7 +11,6 @@ const Card = ({ projects, deleteProject }) => {
 	const changeVisibility = () => alterShow(!showModal)
 
 	const user = useSelector(state => state.User)
-	console.log(user.currentLogged)
 
 	const renderProjects = () =>
 		projects.projects.map(project => (
@@ -62,14 +61,16 @@ const Card = ({ projects, deleteProject }) => {
 							/>
 						</Modal>
 
-						<button
-							className='fakeA btnCard'
-							onClick={changeVisibility}>
-							novo evento{' '}
-							<i
-								className='fas fa-plus'
-								style={{ fontSize: '15px' }}></i>
-						</button>
+						{user.currentLogged.level === 3 && (
+							<button
+								className='fakeA btnCard'
+								onClick={changeVisibility}>
+								novo evento{' '}
+								<i
+									className='fas fa-plus'
+									style={{ fontSize: '15px' }}></i>
+							</button>
+						)}
 						
 						<Badge tags={ project.tags } />
 					</div>
