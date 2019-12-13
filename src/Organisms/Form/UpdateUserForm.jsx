@@ -24,20 +24,17 @@ export default ({ handleSubmit, afterSubmit }) => (
 			)
 				errors.email = 'Por favor, insira um email válido'
 
-			// if (!values.currentPassword)
-			// 	errors.currentPassword = 'Por favor, insira uma senha'
-			// else if (values.currentPassword.length < 8)
-			// 	errors.currentPassword = 'A senha deve conter no mínimo 8 caracteres'
+			if (!values.currentPassword)
+				errors.currentPassword = 'Por favor, confirme sua senha'
 
-			if (!values.confirmPassword)
-				errors.confirmPassword = 'Por favor, confirme sua senha'
-			else if (values.confirmPassword !== values.password)
-				errors.confirmPassword = 'A senha difere da confirmação'
+			// if (!values.confirmPassword)
+			// 	errors.confirmPassword = 'Por favor, confirme sua senha'
+			// else if (values.confirmPassword !== values.password)
+			// 	errors.confirmPassword = 'A senha difere da confirmação'
 
 			return errors
 		}}
 		onSubmit={(values, { setSubmitting }) => {
-			console.log('aaaaaaatirei')
 			handleSubmit(values)
 			setSubmitting(false)
 			afterSubmit()
