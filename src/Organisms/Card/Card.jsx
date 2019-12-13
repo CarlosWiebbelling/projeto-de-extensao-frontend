@@ -40,7 +40,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 									}></i>
 							)}
 
-							{user.level === 3 && (
+							{user.level === 3 && isAdminOfProject(project) && (
 								<i
 									className='fas fa-edit'
 									style={{
@@ -66,7 +66,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 							{/* <i className='fas fa-angle-right'></i> */}
 						</button>
 
-						{user.level === 3 && (
+						{user.level === 3 && isAdminOfProject(project) && (
 							<button
 								className='fakeA btnCard'
 								onClick={changeVisibility}>
