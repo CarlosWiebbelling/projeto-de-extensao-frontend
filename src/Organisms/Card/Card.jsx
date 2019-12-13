@@ -18,6 +18,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 
 	user.level = 3;
 
+	console.log('user')
 	console.log(user)
 	console.log(projects)
 
