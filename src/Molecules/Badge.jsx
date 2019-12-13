@@ -1,10 +1,12 @@
 import React from 'react'
 
+import { generateTagsColor } from '../Helpers/helpers'
+
 const Badge = ({ tags }) => {
 	const renderBadge = () =>
 		tags.map(tag => (
 			<div className='badge' key={ tag._id }>
-				<span className={ tag.name }>{ tag.name }</span>
+				<span className={ tags } style={{backgroundColor: generateTagsColor(tag.name)}}>{ tag.name }</span>
 			</div>
 		))
 

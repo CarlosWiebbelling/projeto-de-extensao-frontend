@@ -378,6 +378,13 @@ a:hover, .btnCard:hover, .btnCard:focus {
 	cursor: default;
 }
 
+.tags {
+	padding: 4px 6px;
+	margin: 0px 2px;
+	border-radius: 4px;
+	float: right;
+}
+
 .TECH {
 	background-color: var(--badge-dark-blue);
 	padding: 4px 6px;
