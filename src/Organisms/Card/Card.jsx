@@ -14,12 +14,6 @@ const Card = ({ projects, deleteProject, openModal }) => {
 		})
 	}
 
-	const fakeAdmin = {
-		email: "pablo3@gmail.com",
-		name: "Pablo 3",
-		_id: "5df415a70970182295f3d177",
-		level: 3
-	}
 	const user = useSelector(state => state.User.currentLogged)
 
 	user.level = 3;
@@ -28,7 +22,7 @@ const Card = ({ projects, deleteProject, openModal }) => {
 	console.log(user)
 	console.log(projects)
 
-	const isAdminOfProject = project => project.projectAdmins.filter(admin => fakeAdmin._id === admin._id).length > 0
+	const isAdminOfProject = project => project.projectAdmins.filter(admin => user._id === admin._id).length > 0
 
 	const renderProjects = () =>
 		projects.projects.map(project => (
