@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-export default ({ handleSubmit }) => (
+export default ({ handleSubmit, afterSubmit }) => (
 	<Formik
 		initialValues={{
 			name: '',
@@ -24,10 +24,10 @@ export default ({ handleSubmit }) => (
 			)
 				errors.email = 'Por favor, insira um email válido'
 
-			if (!values.password)
-				errors.password = 'Por favor, insira uma senha'
-			else if (values.password.length < 8)
-				errors.password = 'A senha deve conter no mínimo 8 caracteres'
+			// if (!values.currentPassword)
+			// 	errors.currentPassword = 'Por favor, insira uma senha'
+			// else if (values.currentPassword.length < 8)
+			// 	errors.currentPassword = 'A senha deve conter no mínimo 8 caracteres'
 
 			if (!values.confirmPassword)
 				errors.confirmPassword = 'Por favor, confirme sua senha'
@@ -37,8 +37,10 @@ export default ({ handleSubmit }) => (
 			return errors
 		}}
 		onSubmit={(values, { setSubmitting }) => {
+			console.log('aaaaaaatirei')
 			handleSubmit(values)
 			setSubmitting(false)
+			afterSubmit()
 		}}>
 		{({ isSubmitting }) => (
 			<Form>

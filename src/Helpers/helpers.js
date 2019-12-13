@@ -19,7 +19,7 @@ export const tagsSpliter = (tags) => {
 }
 
 export const adminSpliter = (admins) => {
-    return admins.split(/[^a-zA-Z\d:@./\-_]+/).map(tag => tag.toUpperCase());
+    return admins.split(/[^a-zA-Z\d:@./\-_]+/).map(tag => tag.toLowerCase());
 }
 
 export const generateTagsColor = (tag) => {

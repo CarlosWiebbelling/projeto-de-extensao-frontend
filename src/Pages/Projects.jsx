@@ -13,6 +13,8 @@ import {
 	deleteProject
 } from '../Redux/Actions/ProjectActions'
 
+import { updateUser } from '../Redux/Actions/User'
+
 import { signout } from '../Redux/Actions/Auth'
 
 const Project = () => {
@@ -30,13 +32,24 @@ const Project = () => {
 		setModalVisible(visible);
 		setModalContent(content);
 	}
+	const closeModal = () => setModalVisible(false)
 
 	const handleFormProject = values => {
 		dispatch(postProject(values));
 		changeModal({
 			title: 'Adicionar projeto',
 			visible: !modalVisible,
-			content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+			content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} afterSubmit={closeModal} /></div>)
+		});
+	}
+
+	const handleFormUpdateUser = values => {
+		console.log(values)
+		dispatch(updateUser(values));
+		changeModal({
+			title: 'Atualizar usuário',
+			visible: false,
+			content: (<div className='col-12'><UpdateUserForm handleSubmit={handleFormUpdateUser} afterSubmit={closeModal} /></div>)
 		});
 	}
 
@@ -49,7 +62,7 @@ const Project = () => {
 				onClick={() => changeModal({
 					title: 'Adicionar projeto',
 					visible: !modalVisible,
-					content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+					content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} afterSubmit={closeModal} /></div>)
 				})}>
 				Add project
 			</button>
@@ -59,7 +72,7 @@ const Project = () => {
 				onClick={() => changeModal({
 					title: 'Atualizar usuário',
 					visible: !modalVisible,
-					content: (<div className='col-12'><UpdateUserForm handleSubmit={() => console.log('NICE updateUser')} /></div>)
+					content: (<div className='col-12'><UpdateUserForm handleSubmit={handleFormUpdateUser} afterSubmit={closeModal} /></div>)
 				})}>
 				Update user
 			</button>

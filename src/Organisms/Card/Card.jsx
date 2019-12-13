@@ -16,6 +16,8 @@ const Card = ({ projects, deleteProject, openModal }) => {
 
 	const user = useSelector(state => state.User.currentLogged)
 
+	user.level = 3;
+
 	console.log(user)
 	console.log(projects)
 
@@ -58,14 +60,10 @@ const Card = ({ projects, deleteProject, openModal }) => {
 
 						<button className='fakeA btnCard'>
 							see more
-							<i className='fas fa-angle-right'></i>
+							{/* <i className='fas fa-angle-right'></i> */}
 						</button>
 
-<<<<<<< HEAD
-						{project.projectAdmins.find(element => element._id !== user._id) && (
-=======
-						{user.currentLogged.level === 3 && (
->>>>>>> 851583aa64e9fac743109c1bea1003e9b6b54af3
+						{user.level === 3 && (
 							<button
 								className='fakeA btnCard'
 								onClick={changeVisibility}>
@@ -75,12 +73,8 @@ const Card = ({ projects, deleteProject, openModal }) => {
 									style={{ fontSize: '15px' }}></i>
 							</button>
 						)}
-<<<<<<< HEAD
-						<Badge tags={project.tags} />
-=======
 						
 						<Badge tags={ project.tags } />
->>>>>>> 851583aa64e9fac743109c1bea1003e9b6b54af3
 					</div>
 					<Event events={project.events} />
 				</div>
