@@ -6,7 +6,6 @@ import Event from '../../Molecules/Event'
 import EventForm from '../Form/EventForm'
 
 const Card = ({ projects, deleteProject, openModal }) => {
-	// <<<<<<< HEAD
 
 	const changeVisibility = () => {
 		openModal({
@@ -14,13 +13,6 @@ const Card = ({ projects, deleteProject, openModal }) => {
 			content: (<EventForm handleSubmit={() => console.log('NICE event')} />)
 		})
 	}
-
-	// =======
-	// 	const changeVisibility = () => openModal({
-	// 		title: 'Adicionar evento',
-	// 		content: (<EventForm handleSubmit={() => console.log('NICE event')} />)
-	// 	})
-	// >>>>>>> d7545cb849eca0d616e3d41cad2898269b132368
 
 	const user = useSelector(state => state.User.currentLogged)
 
@@ -69,7 +61,11 @@ const Card = ({ projects, deleteProject, openModal }) => {
 							<i className='fas fa-angle-right'></i>
 						</button>
 
+<<<<<<< HEAD
 						{project.projectAdmins.find(element => element._id !== user._id) && (
+=======
+						{user.currentLogged.level === 3 && (
+>>>>>>> 851583aa64e9fac743109c1bea1003e9b6b54af3
 							<button
 								className='fakeA btnCard'
 								onClick={changeVisibility}>
@@ -79,7 +75,12 @@ const Card = ({ projects, deleteProject, openModal }) => {
 									style={{ fontSize: '15px' }}></i>
 							</button>
 						)}
+<<<<<<< HEAD
 						<Badge tags={project.tags} />
+=======
+						
+						<Badge tags={ project.tags } />
+>>>>>>> 851583aa64e9fac743109c1bea1003e9b6b54af3
 					</div>
 					<Event events={project.events} />
 				</div>
