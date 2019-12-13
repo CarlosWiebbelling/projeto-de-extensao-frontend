@@ -4,92 +4,122 @@ import { useSelector, useDispatch } from 'react-redux'
 import Card from '../Organisms/Card/index'
 import FormProject from '../Organisms/Form/ProjectForm'
 import UpdateUserForm from '../Organisms/Form/UpdateUserForm'
+import UpdateLevelForm from '../Organisms/Form/UpdateLevelForm'
 
 import Modal from '../Molecules/Modal'
 
 import {
-	postProject,
-	getAllProjects,
-	deleteProject
+    postProject,
+    getAllProjects,
+    deleteProject
 } from '../Redux/Actions/ProjectActions'
 
 import { signout } from '../Redux/Actions/Auth'
 
 const Project = () => {
-	const dispatch = useDispatch()
-	const projects = useSelector(state => state.Project)
+    const dispatch = useDispatch()
+    const projects = useSelector(state => state.Project)
 
-	useEffect(() => dispatch(getAllProjects()), [dispatch])
+    useEffect(() => dispatch(getAllProjects()), [dispatch])
 
-	// Modal
-	const [modalTitle, setModalTitle] = useState('');
-	const [modalVisible, setModalVisible] = useState(false);
-	const [modalContent, setModalContent] = useState('');
-	const changeModal = ({ title = modalTitle, visible = modalVisible, content = modalContent }) => {
-		setModalTitle(title);
-		setModalVisible(visible);
-		setModalContent(content);
-	}
+    // Modal
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modalContent, setModalContent] = useState('');
 
-	const handleFormProject = values => {
-		dispatch(postProject(values));
-		changeModal({
-			title: 'Adicionar projeto',
-			visible: !modalVisible,
-			content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
-		});
-	}
+    const changeModal = ({ title = modalTitle, visible = modalVisible, content = modalContent }) => {
+        setModalTitle(title);
+        setModalVisible(visible);
+        setModalContent(content);
+    }
 
-	const handleDelete = id => dispatch(deleteProject(id))
+    const handleFormProject = values => {
+        dispatch(postProject(values));
+        changeModal({
+            title: 'Adicionar projeto',
+            visible: !modalVisible,
+            content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+        });
+    }
 
-	return (
-		<div className='container'>
-			<button
-				className='btn btn-primary'
-				onClick={() => changeModal({
-					title: 'Adicionar projeto',
-					visible: !modalVisible,
-					content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
-				})}>
-				Add project
-			</button>
-			<button
-				className='btn btn-primary'
-				style={{ margin: '0px 15px' }}
-				onClick={() => changeModal({
-					title: 'Atualizar usuário',
-					visible: !modalVisible,
-					content: (<div className='col-12'><UpdateUserForm handleSubmit={() => console.log('NICE updateUser')} /></div>)
-				})}>
-				Update user
-			</button>
-			<button
-				className='btn btn-danger'
-				onClick={() => dispatch(signout())}>
-				Sign out
+    const handleFormUpdateuser = values => {
+        console.log(values)
+    }
+
+    const handleFormUpdateLevel = values => {
+        console.log(values)
+    }
+
+    const handleDelete = id => dispatch(deleteProject(id))
+
+    return (
+        <div className='container'>
+
+            {/* ADD Project */}
+            <button
+                className='btn btn-primary'
+                style={{ margin: '5px 10px' }}
+                onClick={() => changeModal({
+                    title: 'Adicionar projeto',
+                    visible: !modalVisible,
+                    content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+                })}>
+                Add project
 			</button>
 
-			<div className='row justify-content-around'>
+            {/* UPDATE User */}
+            <button
+                className='btn btn-primary'
+                style={{ margin: '5px 10px' }}
+                onClick={() => changeModal({
+                    title: 'Atualizar usuário',
+                    visible: !modalVisible,
+                    content: (<div className='col-12'><UpdateUserForm handleSubmit={handleFormUpdateuser} /></div>)
+                })}>
+                Update user
+			</button>
 
-				<Card
-					projects={projects}
-					deleteProject={id => handleDelete(id)}
-					openModal={data => {
-						changeModal(data)
-						setModalVisible(!modalVisible)
-					}}
+            {/* UPDATE User privileges */}
+            <button
+                className='btn btn-primary'
+                style={{ margin: '5px 10px' }}
+                onClick={() => changeModal({
+                    title: 'Atualizar usuário',
+                    visible: !modalVisible,
+                    content: (<div className='col-12'><UpdateLevelForm handleSubmit={handleFormUpdateLevel} /></div>)
+                })}>
+                Update user level
+			</button>
 
-				/>
+            {/* Sign out */}
+            <button
+                className='btn btn-danger'
+                style={{ margin: '5px 10px' }}
+                onClick={() => dispatch(signout())}>
+                Sign out
+			</button>
 
-				<Modal
-					title={modalTitle}
-					visibility={modalVisible}
-					alterVisibility={() => setModalVisible(!modalVisible)}>
-					{modalContent}
-				</Modal>
-			</div>
-		</div>
-	)
+            {/* Show projects */}
+            <div className='row justify-content-around'>
+                <Card
+                    projects={projects}
+                    deleteProject={id => handleDelete(id)}
+                    openModal={data => {
+                        changeModal(data)
+                        setModalVisible(!modalVisible)
+                    }}
+
+                />
+
+                <Modal
+                    title={modalTitle}
+                    visibility={modalVisible}
+                    alterVisibility={() => setModalVisible(!modalVisible)}>
+                    {modalContent}
+                </Modal>
+            </div>
+        </div>
+    )
 }
 
 export default Project

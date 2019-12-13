@@ -61,26 +61,19 @@ const Card = ({ projects, deleteProject, openModal }) => {
 							<i className='fas fa-angle-right'></i>
 						</button>
 
-<<<<<<< HEAD
-						{project.projectAdmins.find(element => element._id !== user._id) && (
-=======
-						{user.currentLogged.level === 3 && (
->>>>>>> 851583aa64e9fac743109c1bea1003e9b6b54af3
-							<button
-								className='fakeA btnCard'
-								onClick={changeVisibility}>
-								novo evento{' '}
-								<i
-									className='fas fa-plus'
-									style={{ fontSize: '15px' }}></i>
-							</button>
-						)}
-<<<<<<< HEAD
+						{/* {project.projectAdmins.find(element => element._id !== user._id) && ( */}
+
+						{/* {user.currentLogged.level === 3 && ( */}
+						<button
+							className='fakeA btnCard'
+							onClick={changeVisibility}>
+							novo evento{' '}
+							<i
+								className='fas fa-plus'
+								style={{ fontSize: '15px' }}></i>
+						</button>
+						{/* )} */}
 						<Badge tags={project.tags} />
-=======
-						
-						<Badge tags={ project.tags } />
->>>>>>> 851583aa64e9fac743109c1bea1003e9b6b54af3
 					</div>
 					<Event events={project.events} />
 				</div>

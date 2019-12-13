@@ -73,3 +73,20 @@ export const deleteUser = values => dispatch => {
             })
         })
 }
+
+export const updateUserPrivileges = values => dispatch => {
+    console.log(values)
+    // axios.put(`${BASE_URL}/user`, values)
+    //     .then(response => {
+    //         console.log(response)
+    //         dispatch({
+    //             type: 'NOTHING'
+    //         })
+    //     })
+    //     .catch(error => {
+    //         console.log(error)
+    //         dispatch({
+    //             type: "NOTHING"
+    //         })
+    //     })
+}
