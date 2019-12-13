@@ -14,6 +14,8 @@ import {
     deleteProject
 } from '../Redux/Actions/ProjectActions'
 
+import { updateUser } from '../Redux/Actions/User'
+
 import { signout } from '../Redux/Actions/Auth'
 
 const Project = () => {
@@ -33,12 +35,14 @@ const Project = () => {
         setModalContent(content);
     }
 
+    const closeModal = () => setModalVisible(false)
+
     const handleFormProject = values => {
         dispatch(postProject(values));
         changeModal({
             title: 'Adicionar projeto',
             visible: !modalVisible,
-            content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+            content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} afterSubmit={closeModal} /></div>)
         });
     }
 
@@ -62,7 +66,7 @@ const Project = () => {
                 onClick={() => changeModal({
                     title: 'Adicionar projeto',
                     visible: !modalVisible,
-                    content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} /></div>)
+                    content: (<div className='col-12'><FormProject handleSubmit={handleFormProject} afterSubmit={closeModal} /></div>)
                 })}>
                 Add project
 			</button>
@@ -74,7 +78,7 @@ const Project = () => {
                 onClick={() => changeModal({
                     title: 'Atualizar usuário',
                     visible: !modalVisible,
-                    content: (<div className='col-12'><UpdateUserForm handleSubmit={handleFormUpdateuser} /></div>)
+                    content: (<div className='col-12'><UpdateUserForm handleSubmit={handleFormUpdateuser} afterSubmit={closeModal} /></div>)
                 })}>
                 Update user
 			</button>
@@ -86,7 +90,7 @@ const Project = () => {
                 onClick={() => changeModal({
                     title: 'Atualizar usuário',
                     visible: !modalVisible,
-                    content: (<div className='col-12'><UpdateLevelForm handleSubmit={handleFormUpdateLevel} /></div>)
+                    content: (<div className='col-12'><UpdateLevelForm handleSubmit={handleFormUpdateLevel} afterSubmit={closeModal} /></div>)
                 })}>
                 Update user level
 			</button>

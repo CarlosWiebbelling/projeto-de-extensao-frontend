@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-const Project = ({ handleSubmit }) => (
+const Project = ({ handleSubmit, afterSubmit }) => (
 	<Formik
 		initialValues={{ name: '', description: '', tags: '', projectAdmins: '' }}
 		validate={values => {
@@ -24,6 +24,7 @@ const Project = ({ handleSubmit }) => (
 		onSubmit={(values, { setSubmitting }) => {
 			handleSubmit(values)
 			setSubmitting(false)
+			afterSubmit()
 		}}>
 		{({ isSubmitting }) => (
 			<Form>

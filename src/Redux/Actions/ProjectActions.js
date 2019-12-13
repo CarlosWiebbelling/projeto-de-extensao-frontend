@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { adminSpliter, tagsSpliter } from '../../Helpers/helpers'
 
 import {
     BASE_URL,
@@ -30,19 +31,9 @@ export const getOneProject = values => dispatch => {
 }
 
 export const postProject = values => dispatch => {
-    values['tags'] = [
-        {
-            name: 'ADM'
-        },
-        {
-            name: 'TECH'
-        },
-        {
-            name: 'LG'
-        }
-    ]
-
-    values['projectAdmins'] = ['pablo2@gmail.com', 'carlos@westpoint.io']
+    values.tags  = tagsSpliter(values.tags)
+    values.projectAdmins = adminSpliter(values.projectAdmins)    
+    console.log('usercreds', values)
 
     axios.post(`${BASE_URL}/project`, values)
         .then(response =>
