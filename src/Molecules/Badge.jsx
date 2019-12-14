@@ -4,9 +4,9 @@ import { generateTagsColor } from '../Helpers/helpers'
 
 const Badge = ({ tags }) => {
 	const renderBadge = () =>
-		tags.map(tag => (
-			<div className='badge' key={ tag._id }>
-				<span className={ tags } style={{backgroundColor: generateTagsColor(tag.name)}}>{ tag.name }</span>
+		tags.map((tag, index) => (
+			<div className='badge' key={index}>
+				<span className={tags} style={{ backgroundColor: generateTagsColor(tag) }}>{tag}</span>
 			</div>
 		))
 

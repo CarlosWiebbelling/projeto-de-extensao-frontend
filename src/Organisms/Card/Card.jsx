@@ -74,7 +74,6 @@ const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 									style={{ fontSize: '15px' }}></i>
 							</button>
 						)}
-
 						<Badge tags={project.tags} />
 					</div>
 					<Event events={project.events} />
