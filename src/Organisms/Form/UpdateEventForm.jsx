@@ -7,17 +7,17 @@ export default ({ handleSubmit }) => (
 		validate={values => {
 			let errors = {}
 
-			// if (!values.name)
-			//     errors.name = 'Required'
+			if (!values.name)
+			    errors.name = 'Required'
 
-			// if (!values.description)
-			// 	errors.description = 'Required'
+			if (!values.schedule)
+				errors.schedule = 'Required'
 
-			// if (!values.tags)
-			// 	errors.tags = 'Required'
+			if (!values.speaker)
+				errors.speaker = 'Required'
 
-			// if (!values.projectAdmins)
-			//     errors.projectAdmins = 'Required'
+			if (!values.attachments)
+			    errors.attachments = 'Required'
 
 			return errors
 		}}
@@ -38,6 +38,10 @@ export default ({ handleSubmit }) => (
 				<h4 htmlFor='speaker'>Palestrante</h4>
 				<Field className='form form-control' type='text' name='speaker' />
 				<ErrorMessage name='speaker' component='div' />
+
+				<h4 htmlFor='attachments'>Anexos</h4>
+				<Field className='form form-control' type='text' name='attachments' />
+				<ErrorMessage name='attachments' component='div' />
 
 				<button
 					type='submit'
