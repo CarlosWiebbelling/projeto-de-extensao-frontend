@@ -112,6 +112,7 @@ const Project = () => {
                         changeModal(data)
                         setModalVisible(!modalVisible)
                     }}
+                    afterSubmit={closeModal}
 
                 />
 
