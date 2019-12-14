@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux'
 
 import Project from '../Pages/Projects'
 import Auth from './Auth'
+import { jwtValidator } from '../Helpers/JWT'
 
 export default () => {
 	const token = useSelector(state => state.Auth.token)
-	// return token === null ? <Project /> : <Auth />
-	return token === null ? <Auth /> : <Project /> 
+
+	return token && jwtValidator(token) ? <Project /> : <Auth />
 }

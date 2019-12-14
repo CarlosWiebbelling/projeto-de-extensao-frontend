@@ -379,42 +379,7 @@ a:hover, .btnCard:hover, .btnCard:focus {
 	margin: 0px 2px;
 	border-radius: 4px;
 	float: right;
-}
-
-.TECH {
-	background-color: var(--badge-dark-blue);
-	padding: 4px 6px;
-	margin: 0px 2px;
-	border-radius: 4px;
-	float: right;
-}
-
-.PSI, .LG {
-	background-color: var(--badge-purple);
-	padding: 4px 6px;
-	margin: 0px 2px;
-	border-radius: 4px;
-	float: right;
-}
-
-.ADM {
-	background-color: var(--badge-green);
-	padding: 4px 6px;
-	margin: 0px 2px;
-	border-radius: 4px;
-	float: right;
-}
-
-.MATH {
-	background-color: var(--badge-orange);
-	padding: 4px 6px;
-	margin: 0px 2px;
-	border-radius: 4px;
-	float: right;
-}
-
-.WORD {
-	background-color: var(--badge-pink);
+	/* background-color: var(--badge-dark-blue); */
 	padding: 4px 6px;
 	margin: 0px 2px;
 	border-radius: 4px;

@@ -3,18 +3,23 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Badge from '../../Molecules/Badge'
 import Event from '../../Molecules/Event'
-import EventForm from '../Form/EventForm'
+import UpdateEventForm from '../Form/UpdateEventForm'
 
-// import {} from '../../Redux/Actions/ProjectActions'
+import { postEvent } from '../../Redux/Actions/EventActions'
 
 const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 
 	const dispatch = useDispatch()
 
+	const handleEventSubmit = (values) => {
+		console.log(values)
+		postEvent(dispatch(values))
+	}
+
 	const changeVisibility = () => {
 		openModal({
 			title: 'Adicionar evento',
-			content: (<EventForm handleSubmit={console.log('dar dispatch aqui')} afterSubmit={afterSubmit} />)
+			content: (<UpdateEventForm handleSubmit={handleEventSubmit} afterSubmit={afterSubmit} />)
 		})
 	}
 

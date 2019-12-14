@@ -8,17 +8,6 @@ import {
     // PROJECT_DELETED
 } from '../../Utils/consts'
 
-export const getAllProjects = () => dispatch => {
-    axios.get(`${BASE_URL}/project`)
-        .then(response =>
-            dispatch({
-                type: PROJECT_FETCHED,
-                payload: response.data.projects
-            })
-        )
-        .catch(error => console.error(error))
-}
-
 export const getOneProject = values => dispatch => {
     axios.get(`${BASE_URL}/project/${values._id}`)
         .then(response =>
@@ -30,10 +19,20 @@ export const getOneProject = values => dispatch => {
         .catch(error => console.error(error))
 }
 
+export const getAllProjects = () => dispatch => {
+    axios.get(`${BASE_URL}/project`)
+        .then(response =>
+            dispatch({
+                type: PROJECT_FETCHED,
+                payload: response.data.projects
+            })
+        )
+        .catch(error => console.error(error))
+}
+
 export const postProject = values => dispatch => {
-    values.tags  = tagsSpliter(values.tags)
-    values.projectAdmins = adminSpliter(values.projectAdmins)    
-    console.log('usercreds', values)
+    values.tags = tagsSpliter(values.tags)
+    values.projectAdmins = adminSpliter(values.projectAdmins)
 
     axios.post(`${BASE_URL}/project`, values)
         .then(response =>
