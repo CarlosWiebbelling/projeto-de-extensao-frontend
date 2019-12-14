@@ -8,7 +8,6 @@ import UpdateEventForm from '../Form/UpdateEventForm'
 import { postEvent } from '../../Redux/Actions/EventActions'
 
 const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
-
 	const dispatch = useDispatch()
 
 	const handleEventSubmit = (values) => {
@@ -81,9 +80,9 @@ const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 								</button>
 							</div>
 						)}
-						
 					</div>
-					<Event events={project.events} />
+					{project.projectAdmins.map(admin => (<p>{'Admin do projeto:' + admin.name}</p>))}
+					{/* <Event events={project.events} /> */}
 				</div>
 			</div>
 		))

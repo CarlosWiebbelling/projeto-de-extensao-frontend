@@ -61,7 +61,7 @@ const Project = () => {
 
             {/* ADD Project */}
             <button
-                className='btn btn-primary'
+                className='btn btn-success'
                 style={{ margin: '5px 10px' }}
                 onClick={() => changeModal({
                     title: 'Adicionar projeto',
@@ -73,7 +73,7 @@ const Project = () => {
 
             {/* UPDATE User */}
             <button
-                className='btn btn-primary'
+                className='btn btn-success'
                 style={{ margin: '5px 10px' }}
                 onClick={() => changeModal({
                     title: 'Atualizar usuário',
@@ -85,7 +85,7 @@ const Project = () => {
 
             {/* UPDATE User privileges */}
             <button
-                className='btn btn-primary'
+                className='btn btn-success'
                 style={{ margin: '5px 10px' }}
                 onClick={() => changeModal({
                     title: 'Atualizar usuário',
