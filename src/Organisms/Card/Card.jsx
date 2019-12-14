@@ -13,7 +13,7 @@ const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 
 	const handleEventSubmit = (values) => {
 		console.log(values)
-		postEvent(values)
+		postEvent(dispatch(values))
 	}
 
 	const changeVisibility = () => {
