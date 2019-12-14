@@ -16,12 +16,6 @@ const Card = ({ projects, deleteProject, openModal }) => {
 
 	const user = useSelector(state => state.User.currentLogged)
 
-	user.level = 3;
-
-	console.log('user')
-	console.log(user)
-	console.log(projects)
-
 	const isAdminOfProject = project => project.projectAdmins.filter(admin => user._id === admin._id).length > 0
 
 	const renderProjects = () =>

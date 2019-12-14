@@ -1,6 +1,6 @@
 import { user } from '../Store/DefaultStore'
 
-import { jwtDecoder } from '../../Helpers/JWT'
+import { getJwtDecoder } from '../../Helpers/JWT'
 
 import {
     USER_FETCHED_ALL,
@@ -10,7 +10,7 @@ import {
 export default (INITIAL_STATE = user, action) => {
     switch (action.type) {
         case TOKEN_FETCHED:
-            let decoded = jwtDecoder(action.payload)
+            let decoded = getJwtDecoder(action.payload)
             return { ...INITIAL_STATE, currentLogged: decoded }
 
         case USER_FETCHED_ALL:
