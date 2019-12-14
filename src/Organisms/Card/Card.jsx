@@ -3,28 +3,29 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Badge from '../../Molecules/Badge'
 import Event from '../../Molecules/Event'
-import EventForm from '../Form/EventForm'
+import UpdateEventForm from '../Form/UpdateEventForm'
 
-// import {} from '../../Redux/Actions/ProjectActions'
+import { postEvent } from '../../Redux/Actions/EventActions'
 
 const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 
 	const dispatch = useDispatch()
 
+	const handleEventSubmit = (values) => {
+		console.log(values)
+		postEvent(values)
+	}
+
 	const changeVisibility = () => {
 		openModal({
 			title: 'Adicionar evento',
-			content: (<EventForm handleSubmit={console.log('dar dispatch aqui')} afterSubmit={afterSubmit} />)
+			content: (<UpdateEventForm handleSubmit={handleEventSubmit} afterSubmit={afterSubmit} />)
 		})
 	}
 
 	const user = useSelector(state => state.User.currentLogged)
 
-<<<<<<< HEAD
-	const isAdminOfProject = project => project.projectAdmins.filter(admin => user._id === admin._id).length > 0
-=======
 	const isAdminOfProject = project => project.projectAdmins.filter(admin => user.id === admin._id).length > 0
->>>>>>> b3e2c267f6f6a8e73a34800d524aff5785fa4f6b
 
 	const renderProjects = () =>
 		projects.projects.map(project => (
