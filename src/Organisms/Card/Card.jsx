@@ -25,8 +25,8 @@ const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 	const renderProjects = () =>
 		projects.projects.map(project => (
 			<div className='col-5' key={project._id}>
-				<div className='project'>
-					<div className='header'>
+				<div className='container mainContainer'>
+					<div>
 						<h4 className='titleProject'>
 							{project.name}
 
@@ -51,7 +51,7 @@ const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 									}></i>
 							)}
 						</h4>
-						<p>
+						<p className='card-text'>
 							Lorem ipsum dolor sit amet consectetur, adipisicing
 							elit. Doloremque eligendi libero rem illo eveniet
 							dolore non! Eligendi, obcaecati commodi ipsa
@@ -59,22 +59,24 @@ const Card = ({ projects, deleteProject, openModal, afterSubmit }) => {
 							voluptatibus magni, veritatis nisi a!
 						</p>
 
-						<button className='fakeA btnCard'>
-							see more
-							{/* <i className='fas fa-angle-right'></i> */}
-						</button>
-
-						{user.level === 3 && isAdminOfProject(project) && (
-							<button
-								className='fakeA btnCard'
-								onClick={changeVisibility}>
-								novo evento{' '}
-								<i
-									className='fas fa-plus'
-									style={{ fontSize: '15px' }}></i>
-							</button>
-						)}
 						<Badge tags={project.tags} />
+						
+						{user.level === 3 && isAdminOfProject(project) && (
+							<div className='ml-2' style={{margin: 20}}>
+								<button className='btn btn-success' style={{margin: 5}}>
+									see more
+									{/* <i className='fas fa-angle-right'></i> */}
+								</button>
+								<button
+									className='btn btn-success'
+									onClick={changeVisibility}>
+									novo evento{' '}
+									<i
+										style={{ fontSize: '15px' }}></i>
+								</button>
+							</div>
+						)}
+						
 					</div>
 					<Event events={project.events} />
 				</div>

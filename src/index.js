@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import ReduxThunk from 'redux-thunk'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './Utils/App.css'
 import './Utils/dependencies'
